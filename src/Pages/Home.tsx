@@ -16,12 +16,6 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import React, {PropsWithChildren} from 'react';
 
-import {StackNavigationProp} from '@react-navigation/stack';
-import {ParamListBase} from '@react-navigation/native';
-import {ScreenContainerProps} from 'react-native-screens';
-
-type Props = StackNavigationProp<ParamListBase, 'Home'>;
-
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;

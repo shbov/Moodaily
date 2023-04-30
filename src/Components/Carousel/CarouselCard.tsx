@@ -1,10 +1,11 @@
-import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 import Style from '../../Styles/Style';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {scaleHeight} from '../../Functions/scaleHeight';
 import {Item} from '../../Types/Item';
+import WebView from 'react-native-webview';
 
 const fullWidth =
   Dimensions.get('window').width - 2 * Style.container.paddingHorizontal;
@@ -16,7 +17,7 @@ type Props = {
 const CarouselCard: React.FC<Props> = ({item}) => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'green',
+      // flex: 1,
     },
 
     text: {
@@ -25,7 +26,7 @@ const CarouselCard: React.FC<Props> = ({item}) => {
       fontSize: 32,
       lineHeight: 38,
       color: Colors.white,
-
+      paddingHorizontal: Style.container.paddingHorizontal,
       marginBottom: 48,
     },
 

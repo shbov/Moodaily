@@ -6,7 +6,7 @@ const Style = {
   },
 
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
   },
 
   button: {

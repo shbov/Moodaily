@@ -13,6 +13,7 @@ import Style from '../Styles/Style';
 
 import PrimaryButton from '../Components/PrimaryButton';
 import CarouselCards from '../Components/Carousel/CarouselCards';
+
 import {Item} from '../Types/Item';
 
 const items: Item[] = [
@@ -29,6 +30,7 @@ const items: Item[] = [
     src: require('../../assets/images/onboarding-4.png'),
   },
 ];
+
 const OnboardingScreen: ({navigation}: {navigation: any}) => JSX.Element = ({
   navigation,
 }) => {
@@ -64,9 +66,6 @@ const style = StyleSheet.create({
   },
 
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 48,
     paddingLeft: Style.container.paddingHorizontal,
     paddingRight: Style.container.paddingHorizontal,
   },
@@ -86,7 +85,7 @@ const style = StyleSheet.create({
   },
 
   bottom: {
-    backgroundColor: 'red',
+    marginTop: 30,
   },
 });
 

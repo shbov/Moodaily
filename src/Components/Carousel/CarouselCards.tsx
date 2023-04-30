@@ -12,47 +12,57 @@ type PropsType = {
   items: Item[];
 };
 
-const fullWidth =
-  Dimensions.get('window').width - 2 * Style.container.paddingHorizontal;
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    minHeight: 450,
-    marginBottom: 48,
-  },
-});
+const fullWidth = Dimensions.get('window').width;
 
 const CarouselCards = (props: PropsType) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <View>
+    <View style={style.container}>
       <Carousel
-        loop
+        loop={false}
         width={fullWidth}
         autoPlay={true}
         data={props.items}
+        style={style.carousel}
         autoPlayInterval={2500}
-        style={style.container}
         renderItem={({item}) => <CarouselCard item={item} />}
         onSnapToItem={index => setActiveIndex(index)}
+        pagingEnabled={true}
       />
       <Pagination
         dotsLength={props.items.length}
         activeDotIndex={activeIndex}
-        containerStyle={{backgroundColor: 'transparent'}}
-        dotStyle={{
-          width: 16,
-          height: 16,
-          borderRadius: 100,
-          marginHorizontal: 4,
-          backgroundColor: Style.colors.purple,
-        }}
-        inactiveDotScale={Style.button.hover.opacity}
+        dotStyle={style.dotBase}
+        inactiveDotStyle={style.dotInactive}
+        inactiveDotOpacity={1}
+        inactiveDotScale={0.6}
       />
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  container: {
+    minHeight: 500,
+    marginHorizontal: -20,
+  },
+
+  carousel: {
+    flex: 1,
+  },
+
+  dotBase: {
+    width: 16,
+    height: 16,
+    borderRadius: 100,
+    marginHorizontal: 3,
+    backgroundColor: Style.colors.purple,
+  },
+
+  dotInactive: {
+    backgroundColor: 'rgba(232, 234, 236, 1)',
+  },
+});
 
 export default CarouselCards;
