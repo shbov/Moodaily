@@ -16,6 +16,12 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import React, {PropsWithChildren} from 'react';
 
+import {StackNavigationProp} from '@react-navigation/stack';
+import {ParamListBase} from '@react-navigation/native';
+import {ScreenContainerProps} from 'react-native-screens';
+
+type Props = StackNavigationProp<ParamListBase, 'Home'>;
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -65,7 +71,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-const Home = ({navigation, props}) => {
+const Home: () => JSX.Element = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

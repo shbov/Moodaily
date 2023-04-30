@@ -6,11 +6,15 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Home from './src/Pages/Home';
 import OnboardingScreen from './src/Pages/OnboardingScreen';
+// @ts-ignore
 import {ONBOARDING_KEY, APP_ENV} from '@env';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+
+import 'react-native-gesture-handler';
 
 function App(): JSX.Element {
   const Stack = createNativeStackNavigator();
-  const [firstLaunch, setFirstLaunch] = React.useState<boolean>(null);
+  const [firstLaunch, setFirstLaunch] = React.useState<string>('false');
 
   React.useEffect(() => {
     const storeData = async () => {
@@ -19,11 +23,11 @@ function App(): JSX.Element {
       }
 
       const appData = await AsyncStorage.getItem(ONBOARDING_KEY);
-      if (appData == null) {
-        setFirstLaunch(true);
+      if (appData === 'false') {
+        setFirstLaunch('true');
         await AsyncStorage.setItem(ONBOARDING_KEY, 'true');
       } else {
-        setFirstLaunch(false);
+        setFirstLaunch('false');
       }
     };
 
@@ -31,20 +35,21 @@ function App(): JSX.Element {
   }, []);
 
   return (firstLaunch != null && (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {firstLaunch && (
-          <Stack.Screen
-            options={{headerShown: false}}
-            name="Onboarding"
-            component={OnboardingScreen}
-          />
-        )}
+    <GestureHandlerRootView style={{flex: 1}}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {firstLaunch && (
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="Onboarding"
+              component={OnboardingScreen}
+            />
+          )}
 
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   )) as JSX.Element;
 }
-
 export default App;

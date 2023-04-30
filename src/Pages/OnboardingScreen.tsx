@@ -1,6 +1,4 @@
 import {
-  Dimensions,
-  Image,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -10,39 +8,32 @@ import {
 
 import React from 'react';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// project imports
 import Style from '../Styles/Style';
-import {ONBOARDING_KEY} from '@env';
+
 import PrimaryButton from '../Components/PrimaryButton';
-// import CarouselCards from '../Components/CarouselCards';
+import CarouselCards from '../Components/Carousel/CarouselCards';
+import {Item} from '../Types/Item';
 
-// images
-const onboarding1 = require('../../assets/images/onboarding-1.png');
-const onboarding2 = require('../../assets/images/onboarding-2.png');
-const onboarding3 = require('../../assets/images/onboarding-3.png');
-
-// data
-const items = [
+const items: Item[] = [
   {
     title: 'Храните заметки о настроении',
-    src: onboarding1,
+    src: require('../../assets/images/onboarding-2.png'),
   },
   {
     title: 'Находите триггеры плохого настроения',
-    src: onboarding2,
+    src: require('../../assets/images/onboarding-3.png'),
   },
   {
     title: 'Отслеживайте своё настроение',
-    src: onboarding3,
+    src: require('../../assets/images/onboarding-4.png'),
   },
 ];
-const OnboardingScreen = ({navigation, props}) => {
+const OnboardingScreen: ({navigation}: {navigation: any}) => JSX.Element = ({
+  navigation,
+}) => {
   const click = () => {
-    AsyncStorage.setItem(ONBOARDING_KEY, 'true').then(() => {
-      navigation.replace('Home');
-    });
+    navigation.replace('Home');
   };
 
   return (
@@ -56,7 +47,7 @@ const OnboardingScreen = ({navigation, props}) => {
           </TouchableOpacity>
         </View>
 
-        <View>{/*<CarouselCards items={items} />*/}</View>
+        <CarouselCards items={items} />
 
         <View style={style.bottom}>
           <PrimaryButton title="Начать пользоваться" onPress={click} />
@@ -66,7 +57,6 @@ const OnboardingScreen = ({navigation, props}) => {
   );
 };
 
-// styles
 const style = StyleSheet.create({
   main: {
     backgroundColor: Style.colors.primary,
@@ -74,6 +64,9 @@ const style = StyleSheet.create({
   },
 
   container: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 48,
     paddingLeft: Style.container.paddingHorizontal,
     paddingRight: Style.container.paddingHorizontal,
   },
@@ -89,10 +82,11 @@ const style = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: Colors.white,
+    marginTop: 16,
   },
 
   bottom: {
-    marginTop: 30,
+    backgroundColor: 'red',
   },
 });
 

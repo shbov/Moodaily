@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Style from '../Styles/Style';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -10,12 +12,10 @@ type ButtonProps = {
 const PrimaryButton = (props: ButtonProps) => {
   const style = StyleSheet.create({
     btn: {
-      paddingLeft: 24,
-      paddingRight: 24,
-      paddingTop: 14,
-      paddingBottom: 14,
-      backgroundColor: Colors.white,
+      paddingHorizontal: 24,
+      paddingVertical: 14,
       borderRadius: 100,
+      backgroundColor: Colors.white,
       shadowColor: Style.colors.dark,
       shadowRadius: 3,
       shadowOpacity: 0.1,
@@ -26,6 +26,7 @@ const PrimaryButton = (props: ButtonProps) => {
       fontSize: 16,
       lineHeight: 24,
       color: Style.colors.dark,
+
       textAlign: 'center',
     },
   });
