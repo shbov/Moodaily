@@ -1,4 +1,7 @@
 {
   "name": "Moodaily",
-  "displayName": "Moodaily"
+  "displayName": "Moodaily",
+  "expo": {
+
+  }
 }

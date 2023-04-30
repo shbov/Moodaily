@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>ru</string>
 	<key>CFBundleDisplayName</key>
 	<string>Moodaily</string>
 	<key>CFBundleExecutable</key>
@@ -36,20 +36,58 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Steppe-Black.ttf</string>
+		<string>Steppe-Bold.ttf</string>
+		<string>Steppe-Book.ttf</string>
+		<string>Steppe-ExtraBold.ttf</string>
+		<string>Steppe-Light.ttf</string>
+		<string>Steppe-Medium.ttf</string>
+		<string>Steppe-Regular.ttf</string>
+		<string>Steppe-SemiBold.ttf</string>
+		<string>Steppe-Thin.ttf</string>
+		<string>Inter-Black.otf</string>
+		<string>Inter-BlackItalic.otf</string>
+		<string>Inter-Bold.otf</string>
+		<string>Inter-BoldItalic.otf</string>
+		<string>Inter-ExtraBold.otf</string>
+		<string>Inter-ExtraBoldItalic.otf</string>
+		<string>Inter-ExtraLight.otf</string>
+		<string>Inter-ExtraLightItalic.otf</string>
+		<string>Inter-Italic.otf</string>
+		<string>Inter-Light.otf</string>
+		<string>Inter-LightItalic.otf</string>
+		<string>Inter-Medium.otf</string>
+		<string>Inter-MediumItalic.otf</string>
+		<string>Inter-Regular.otf</string>
+		<string>Inter-SemiBold.otf</string>
+		<string>Inter-SemiBoldItalic.otf</string>
+		<string>Inter-Thin.otf</string>
+		<string>Inter-ThinItalic.otf</string>
+	</array>
 </dict>
 </plist>
