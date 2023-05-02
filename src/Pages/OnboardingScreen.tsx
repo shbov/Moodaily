@@ -68,6 +68,7 @@ const style = StyleSheet.create({
   container: {
     paddingLeft: Style.container.paddingHorizontal,
     paddingRight: Style.container.paddingHorizontal,
+    marginTop: 16,
   },
 
   top: {
@@ -81,7 +82,6 @@ const style = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: Colors.white,
-    marginTop: 16,
   },
 
   bottom: {

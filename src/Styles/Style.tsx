@@ -3,6 +3,7 @@ const Style = {
     primary: 'rgba(245, 143, 85, 1)',
     dark: '#101828',
     purple: '#7476D8',
+    background: '#FBF9F5',
   },
 
   container: {
