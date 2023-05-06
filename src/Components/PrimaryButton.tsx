@@ -1,8 +1,7 @@
 import React from 'react';
 
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import Style from '../Styles/Style';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Colors, Style, StyleConstant} from '../Styles/Style';
 
 type ButtonProps = {
   title: string;
@@ -12,22 +11,22 @@ type ButtonProps = {
 const PrimaryButton = (props: ButtonProps) => {
   const style = StyleSheet.create({
     btn: {
-      paddingHorizontal: 24,
+      ...Style.centered,
+      ...Style.shadow,
+
+      paddingHorizontal: Style.container.paddingHorizontal,
       paddingVertical: 14,
       borderRadius: 100,
       backgroundColor: Colors.white,
-      shadowColor: Style.colors.dark,
-      shadowRadius: 3,
-      shadowOpacity: 0.1,
     },
 
     text: {
+      ...Style.text,
+
       fontWeight: '500',
       fontSize: 16,
       lineHeight: 24,
-      color: Style.colors.dark,
-
-      textAlign: 'center',
+      color: Colors.dark,
     },
   });
 
@@ -35,7 +34,7 @@ const PrimaryButton = (props: ButtonProps) => {
     <TouchableOpacity
       style={style.btn}
       onPress={props.onPress}
-      activeOpacity={Style.button.hover.opacity}>
+      activeOpacity={StyleConstant.hover.opacity}>
       <Text style={style.text}>{props.title}</Text>
     </TouchableOpacity>
   );

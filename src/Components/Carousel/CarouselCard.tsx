@@ -1,49 +1,45 @@
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-import Style from '../../Styles/Style';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {scaleHeight} from '../../Functions/scaleHeight';
+import {Colors, Style, StyleConstant} from '../../Styles/Style';
 import {Item} from '../../Types/Item';
-import WebView from 'react-native-webview';
-
-const fullWidth =
-  Dimensions.get('window').width - 2 * Style.container.paddingHorizontal;
+import CustomImage from '../CustomImage';
 
 type Props = {
   item: Item;
 };
 
 const CarouselCard: React.FC<Props> = ({item}) => {
-  const styles = StyleSheet.create({
-    container: {
-      // flex: 1,
-    },
+  let {width} = Dimensions.get('window');
 
+  const styles = StyleSheet.create({
     text: {
-      fontFamily: 'Inter',
+      ...Style.text,
+
       fontWeight: '600',
       fontSize: 32,
       lineHeight: 38,
       color: Colors.white,
-      paddingHorizontal: Style.container.paddingHorizontal,
-      marginBottom: 48,
-    },
 
-    image: {
-      width: fullWidth,
-      height: scaleHeight({
-        source: item.src,
-        desiredWidth: fullWidth,
-      }),
+      marginBottom: 48,
+      paddingHorizontal: Style.container.paddingHorizontal,
     },
+    container: {},
   });
+
+  if (width > StyleConstant.viewScreen.proMax) {
+    width = StyleConstant.viewScreen.proMax;
+    styles.container = {
+      ...Style.centered,
+    };
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{item.title}</Text>
-      <Image source={item.src} style={styles.image} />
+      <CustomImage source={item.src} width={width} />
     </View>
   );
 };
+
 export default CarouselCard;
