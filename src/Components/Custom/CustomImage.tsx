@@ -1,5 +1,5 @@
 import React, {Image, ImageSourcePropType, StyleSheet} from 'react-native';
-import {scaleHeight} from '../Functions/scaleHeight';
+import {scaleHeight} from '../../Functions/scaleHeight';
 
 type Props = {
   source: ImageSourcePropType;

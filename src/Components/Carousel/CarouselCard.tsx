@@ -3,7 +3,7 @@ import React from 'react';
 
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
 import {Item} from '../../Types/Item';
-import CustomImage from '../CustomImage';
+import CustomImage from '../Custom/CustomImage';
 
 type Props = {
   item: Item;

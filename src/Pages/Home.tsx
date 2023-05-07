@@ -84,10 +84,27 @@ const Home = ({navigation}: NativeStackScreenProps<any>) => {
 
           tabBarPressOpacity: StyleConstant.hover.opacity,
         }}>
-        {/*@ts-ignore*/}
-        <Tab.Screen name="Главная" component={ShowAllRecords} />
-        <Tab.Screen name="Анализ" component={SettingsScreen} />
-        <Tab.Screen name="Статистика" component={SettingsScreen} />
+        <Tab.Screen
+          name="ShowAllRecords"
+          component={ShowAllRecords}
+          options={{
+            title: 'Главная',
+          }}
+        />
+        <Tab.Screen
+          name="SettingsScreen1"
+          component={SettingsScreen}
+          options={{
+            title: 'Анализ',
+          }}
+        />
+        <Tab.Screen
+          name="SettingsScreen2"
+          component={SettingsScreen}
+          options={{
+            title: 'Статистика',
+          }}
+        />
       </Tab.Navigator>
     </SafeAreaView>
   );

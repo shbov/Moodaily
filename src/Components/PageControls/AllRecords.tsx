@@ -1,15 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Colors, Style} from '../Styles/Style';
-import {TransparentButton} from './TransparentButton';
-import {getWordEnding} from '../Functions/getWordEnding';
+import {Colors, Style} from '../../Styles/Style';
+import {TransparentButton} from '../Custom/TransparentButton';
+import {getWordEnding} from '../../Functions/getWordEnding';
 
 type Props = {
   onClick: any;
   count: number;
 };
 
-const PageControl = (props: Props) => {
+const AllRecords = (props: Props) => {
   const styles = StyleSheet.create({
     container: {
       alignItems: 'center',
@@ -51,11 +51,11 @@ const PageControl = (props: Props) => {
       <TransparentButton
         stylesContainer={styles.svg}
         stylesImage={styles.img}
-        source={require('../../assets/images/icon-plus.png')}
+        source={require('../../../assets/images/icon-plus.png')}
         onClick={props.onClick}
       />
     </View>
   );
 };
 
-export default PageControl;
+export default AllRecords;

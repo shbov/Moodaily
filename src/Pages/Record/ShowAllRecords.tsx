@@ -2,16 +2,11 @@ import React, {Component} from 'react';
 import {ActionSheetIOS, FlatList, StyleSheet, View} from 'react-native';
 
 import Empty from '../../Components/Record/Empty';
-import {Style} from '../../Styles/Style';
+import {Style, StyleConstant} from '../../Styles/Style';
 import {Record} from '../../Types/Record';
-import {
-  deleteAllRecords,
-  deleteRecord,
-  getAllRecords,
-} from '../../Actions/Record';
-import PageControl from '../../Components/PageControl';
+import {deleteRecord, getAllRecords} from '../../Actions/Record';
+import AllRecords from '../../Components/PageControls/AllRecords';
 import {Single} from '../../Components/Record/Single';
-import {fakeDate} from '../../Actions/CreateFakeData';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 interface MyComponentState {
@@ -34,9 +29,10 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
   focusSubscription: Function = () => {};
 
   async componentDidMount() {
-    await deleteAllRecords();
-    await fakeDate();
-    this.setState({records: await getAllRecords(), loading: false});
+    // await deleteAllRecords();
+    // await generateFakeData();
+    const records = await getAllRecords();
+    this.setState({records: records, loading: false});
     this.focusSubscription = this.props.navigation.addListener(
       'focus',
       async () => {
@@ -50,10 +46,6 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
   }
 
   render() {
-    const click = () => {
-      this.props.navigation.push('AddNewRecord');
-    };
-
     const styles = StyleSheet.create({
       home: {
         flex: 1,
@@ -61,7 +53,7 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
 
       recordsList: {
         paddingHorizontal: Style.container.paddingHorizontal,
-        paddingVertical: 24,
+        paddingVertical: StyleConstant.paddingVertical,
       },
     });
 
@@ -73,10 +65,10 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
           cancelButtonIndex: 0,
         },
         async buttonIndex => {
-          if (buttonIndex === 0) {
-            console.log('cancel');
-          } else if (buttonIndex === 1) {
-            console.log('edit');
+          if (buttonIndex === 1) {
+            this.props.navigation.navigate('CreateAndEdit', {
+              recordID: recordTo,
+            });
           } else if (buttonIndex === 2) {
             await this.deleteRecord(recordTo);
           }
@@ -84,11 +76,17 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
       );
     };
 
+    function dateCompare(a: Record, b: Record) {
+      return (
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+    }
+
     return (
       <View style={styles.home}>
         {!this.state.loading && (
           <FlatList
-            data={this.state.records}
+            data={this.state.records.sort(dateCompare)}
             contentContainerStyle={styles.recordsList}
             ListEmptyComponent={<Empty />}
             ItemSeparatorComponent={() => (
@@ -110,7 +108,10 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
           />
         )}
 
-        <PageControl onClick={click} count={this.state.records.length ?? 0} />
+        <AllRecords
+          onClick={() => this.props.navigation.push('CreateAndEdit')}
+          count={this.state.records.length ?? 0}
+        />
       </View>
     );
   }

@@ -4,8 +4,8 @@ import React from 'react';
 type Props = {
   source: ImageSourcePropType;
   onClick: any;
-  stylesContainer: any;
-  stylesImage: any;
+  stylesContainer: Object;
+  stylesImage: Object;
 };
 
 export const TransparentButton = (props: Props) => {

@@ -2,11 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Record} from '../../Types/Record';
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
-import {parseISO} from 'date-fns';
-import format from 'date-fns/format';
-import ruLocale from 'date-fns/locale/ru';
-import {TransparentButton} from '../TransparentButton';
-import CustomImage from '../CustomImage';
+import {TransparentButton} from '../Custom/TransparentButton';
+import {formatDate} from '../../Functions/formatDate';
+import {EmotionImage} from '../../Components/Custom/EmotionImage';
 
 type Props = {
   record: Record;
@@ -19,12 +17,14 @@ export const Single = (props: Props) => {
     record: {
       ...Style.item,
       ...Style.shadow,
+
       backgroundColor: Colors.white,
       borderRadius: Style.button.borderRadius,
     },
 
     created_at: {
       ...Style.text,
+
       fontWeight: '400',
       fontSize: 16,
       lineHeight: 24,
@@ -40,6 +40,7 @@ export const Single = (props: Props) => {
 
     title: {
       ...Style.text,
+
       fontWeight: '600',
       fontSize: 18,
       lineHeight: 28,
@@ -96,6 +97,7 @@ export const Single = (props: Props) => {
   //     </Text>
   //   );
   // };
+
   const onClick = () => {
     props.navigation.navigate('ShowRecord', {
       recordID: props.record.id,
@@ -110,9 +112,7 @@ export const Single = (props: Props) => {
       <View>
         <View style={styles.top}>
           <Text style={styles.created_at}>
-            {format(parseISO(props.record.created_at), 'dd MMMM, yyyy г.', {
-              locale: ruLocale,
-            })}
+            {formatDate(props.record.created_at)}
           </Text>
           <TransparentButton
             stylesContainer={styles.svg}
@@ -135,15 +135,13 @@ export const Single = (props: Props) => {
           {props.record.description}
         </Text>
 
-        <View style={styles.emotions}>
-          {props.record.emotions.map(emotion => (
-            <CustomImage
-              source={emotion.source}
-              width={36}
-              key={emotion.name}
-            />
-          ))}
-        </View>
+        {props.record.emotions.length > 0 && (
+          <View style={styles.emotions}>
+            {props.record.emotions.map(emotion => (
+              <EmotionImage emotion={emotion} key={emotion.name} />
+            ))}
+          </View>
+        )}
       </View>
     </TouchableOpacity>
   );

@@ -13,9 +13,12 @@ export const Colors = {
 
   lightGrey: 'rgba(232, 234, 236, 1)',
   grey: '#D9D9D9',
+
+  danger: '#F7867E',
 };
 
 export const StyleConstant = {
+  paddingVertical: 24,
   hover: {
     opacity: 0.85,
   },
@@ -28,7 +31,7 @@ export const StyleConstant = {
 export const Style = StyleSheet.create({
   container: {
     paddingHorizontal: 24,
-    marginTop: 16,
+    marginTop: StyleConstant.paddingVertical,
   },
 
   button: {

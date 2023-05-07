@@ -2,9 +2,11 @@ import React from 'react';
 import {Record} from '../../Types/Record';
 import {deleteRecord, getRecord} from '../../Actions/Record';
 import {RecordNotFound} from '../../Components/Record/RecordNotFound';
-import {ActionSheetIOS, StyleSheet, Text, View} from 'react-native';
-import CustomImage from '../../Components/CustomImage';
+import {ActionSheetIOS, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Colors, Style} from '../../Styles/Style';
+import {formatDate} from '../../Functions/formatDate';
+
+import {EmotionImage} from '../../Components/Custom/EmotionImage';
 
 interface MyComponentState {
   record: Record | undefined;
@@ -35,9 +37,24 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
     });
   }
 
-  async deleteRecord(recordTo: number) {
-    await deleteRecord(recordTo);
-    this.props.navigation.navigate('ShowAllRecords');
+  public static onClick(recordTo: number, navigation: any) {
+    return ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: ['Назад', 'Редактировать', 'Удалить'],
+        destructiveButtonIndex: 2,
+        cancelButtonIndex: 0,
+      },
+      async buttonIndex => {
+        if (buttonIndex === 1) {
+          navigation.replace('CreateAndEdit', {
+            recordID: recordTo,
+          });
+        } else if (buttonIndex === 2) {
+          await deleteRecord(recordTo);
+          navigation.navigate('Home');
+        }
+      },
+    );
   }
 
   render() {
@@ -61,7 +78,7 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
         lineHeight: 32,
 
         color: Colors.dark,
-        marginBottom: 32,
+        marginBottom: 24,
       },
 
       desc: {
@@ -79,48 +96,35 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
         alignItems: 'center',
         marginBottom: 16,
       },
+
+      created_at: {
+        ...Style.text,
+
+        fontWeight: '400',
+        fontSize: 16,
+        lineHeight: 24,
+        color: Colors.tertiary,
+        marginBottom: 16,
+      },
     });
 
-    const onClick = (recordTo: number) => {
-      return ActionSheetIOS.showActionSheetWithOptions(
-        {
-          options: ['Назад', 'Удалить'],
-          destructiveButtonIndex: 1,
-          cancelButtonIndex: 0,
-        },
-        async buttonIndex => {
-          if (buttonIndex === 0) {
-            console.log('cancel');
-          } else if (buttonIndex === 1) {
-            await this.deleteRecord(recordTo);
-          }
-        },
-      );
-    };
-
     return (
-      <View style={styles.container}>
-        <View style={styles.emotions}>
-          {this.state.record.emotions.map(emotion => (
-            <CustomImage
-              source={emotion.source}
-              width={48}
-              key={emotion.name}
-            />
-          ))}
-        </View>
+      <ScrollView style={styles.container}>
+        <Text style={styles.created_at}>
+          {formatDate(this.state.record.created_at)}
+        </Text>
+
+        {this.state.record.emotions.length > 0 && (
+          <View style={styles.emotions}>
+            {this.state.record.emotions.map(emotion => (
+              <EmotionImage emotion={emotion} key={emotion.name} />
+            ))}
+          </View>
+        )}
 
         <Text style={styles.title}>{this.state.record.title}</Text>
-
-        {/*<ReadMore*/}
-        {/*  numberOfLines={3}*/}
-        {/*  renderTruncatedFooter={_renderTruncatedFooter}*/}
-        {/*  renderRevealedFooter={_renderRevealedFooter}>*/}
-        {/*  <Text style={styles.desc}>{props.record.description}</Text>*/}
-        {/*</ReadMore>*/}
-
         <Text style={styles.desc}>{this.state.record.description}</Text>
-      </View>
+      </ScrollView>
     );
   }
 }

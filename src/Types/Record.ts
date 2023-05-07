@@ -1,4 +1,4 @@
-import {IEmotionRecord} from '../Enums/Emotion';
+import {EmotionType} from './Emotion';
 
 export type Record = {
   id: number;
@@ -6,5 +6,5 @@ export type Record = {
   description: string;
   created_at: string;
   updated_at: string;
-  emotions: IEmotionRecord[];
+  emotions: EmotionType[];
 };

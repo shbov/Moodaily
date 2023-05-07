@@ -9,12 +9,13 @@ import OnboardingScreen from './src/Pages/OnboardingScreen';
 
 // @ts-ignore
 import {ONBOARDING_KEY, ONBOARDING_SHOW_DEV, APP_ENV} from '@env';
-import {AddNewRecord} from './src/Pages/Record/AddNewRecord';
+import {CreateAndEdit} from './src/Pages/Record/CreateAndEdit';
 import {Colors, Style} from './src/Styles/Style';
 import {ShowRecord} from './src/Pages/Record/ShowRecord';
-import {TransparentButton} from './src/Components/TransparentButton';
+import {TransparentButton} from './src/Components/Custom/TransparentButton';
 import {ActionSheetIOS, StyleSheet, Text, View} from 'react-native';
-import {deleteRecord} from './src/Actions/Record';
+import {deleteRecord, getRecord, isRecordExists} from './src/Actions/Record';
+import {ro} from 'date-fns/locale';
 
 interface MyComponentState {
   showOnboarding: boolean;
@@ -26,6 +27,7 @@ interface Props {}
 class App extends React.Component<Props, MyComponentState> {
   constructor(props: Props) {
     super(props);
+
     this.state = {
       showOnboarding: false,
       onboardingLoaded: false,
@@ -50,8 +52,10 @@ class App extends React.Component<Props, MyComponentState> {
 
   render() {
     const Stack = createNativeStackNavigator();
+
     const MyTheme = {
       ...DefaultTheme,
+
       colors: {
         ...DefaultTheme.colors,
         background: Colors.background,
@@ -59,51 +63,24 @@ class App extends React.Component<Props, MyComponentState> {
     };
 
     const headerSettings = {
+      headerShadowVisible: false,
+      headerBackTitleVisible: false,
+      headerTintColor: Colors.dark,
+
       headerStyle: {
         backgroundColor: Colors.background,
       },
-      headerShadowVisible: false, // applied here
-      headerBackTitleVisible: false,
-      headerTintColor: Colors.dark,
+
       headerTitleStyle: {
         ...Style.text,
         fontWeight: '500',
       },
     };
 
-    const styles = StyleSheet.create({
-      svg: {},
-
-      img: {
-        width: 24,
-        height: 24,
-      },
-    });
-
-    const handleOnClick = (recordTo: number, navigation: any) => {
-      return ActionSheetIOS.showActionSheetWithOptions(
-        {
-          options: ['Назад', 'Редактировать', 'Удалить'],
-          destructiveButtonIndex: 2,
-          cancelButtonIndex: 0,
-        },
-        async buttonIndex => {
-          if (buttonIndex === 0) {
-            console.log('cancel');
-          } else if (buttonIndex === 1) {
-            console.log('edit');
-          } else if (buttonIndex === 1) {
-            await deleteRecord(recordTo);
-            navigation.pop();
-          }
-        },
-      );
-    };
-
     return (
       this.state.onboardingLoaded && (
         <NavigationContainer theme={MyTheme}>
-          <Stack.Navigator initialRouteName="Onboarding">
+          <Stack.Navigator>
             {this.state.showOnboarding && (
               <Stack.Screen
                 name="Onboarding"
@@ -111,18 +88,20 @@ class App extends React.Component<Props, MyComponentState> {
                 options={{headerShown: false}}
               />
             )}
+
             <Stack.Screen
               name="Home"
               component={Home}
               options={{headerShown: false}}
             />
+
             <Stack.Screen
-              name={'AddNewRecord'}
-              component={AddNewRecord}
-              options={{
-                title: 'Добавить запись',
+              name={'CreateAndEdit'}
+              component={CreateAndEdit}
+              options={({route}) => ({
                 ...headerSettings,
-              }}
+                title: App.getTitle(route),
+              })}
             />
 
             <Stack.Screen
@@ -133,12 +112,15 @@ class App extends React.Component<Props, MyComponentState> {
                 ...headerSettings,
                 headerRight: () => (
                   <TransparentButton
-                    stylesContainer={styles.svg}
-                    stylesImage={styles.img}
-                    source={require('./assets/images/icon-more-dark.png')}
-                    onClick={() => {
-                      handleOnClick(route.params.recordID, navigation);
+                    stylesContainer={{}}
+                    stylesImage={{
+                      width: 24,
+                      height: 24,
                     }}
+                    source={require('./assets/images/icon-more-dark.png')}
+                    onClick={() =>
+                      ShowRecord.onClick(route.params.recordID, navigation)
+                    }
                   />
                 ),
               })}
@@ -147,6 +129,14 @@ class App extends React.Component<Props, MyComponentState> {
         </NavigationContainer>
       )
     );
+  }
+
+  static getTitle(route: any): string {
+    if (!route.params || !route.params?.recordID) {
+      return 'Создать запись';
+    }
+
+    return 'Редактировать запись';
   }
 }
 
