@@ -89,6 +89,7 @@
 		93DEED5507094DCEA0440FA6 /* Inter-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.otf"; path = "../assets/fonts/Inter-Black.otf"; sourceTree = "<group>"; };
 		97DB4449084B4ED290E0C068 /* Steppe-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Black.ttf"; path = "../assets/fonts/Steppe-Black.ttf"; sourceTree = "<group>"; };
 		9D404DA2404847F1B0BD15BF /* Inter-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Italic.otf"; path = "../assets/fonts/Inter-Italic.otf"; sourceTree = "<group>"; };
+		A0362DE42A080DB300AB5810 /* Moodaily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Moodaily.entitlements; path = Moodaily/Moodaily.entitlements; sourceTree = "<group>"; };
 		A1BDC99C01FD4F7A92DA95E9 /* Steppe-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Medium.ttf"; path = "../assets/fonts/Steppe-Medium.ttf"; sourceTree = "<group>"; };
 		A2921E204CB945498DDC45F1 /* Steppe-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Regular.ttf"; path = "../assets/fonts/Steppe-Regular.ttf"; sourceTree = "<group>"; };
 		D0E50871D08A46E09174C038 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBold.otf"; path = "../assets/fonts/Inter-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		13B07FAE1A68108700A75B9A /* Moodaily */ = {
 			isa = PBXGroup;
 			children = (
+				A0362DE42A080DB300AB5810 /* Moodaily.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -614,11 +616,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Moodaily/Moodaily.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MA9ZVR88CQ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Moodaily/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Moodaily – дневник настоения";
+				INFOPLIST_KEY_CFBundleDisplayName = "Moodaily – дневник настроения";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,11 +638,11 @@
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.shbov.ru.moodaily;
 				PRODUCT_NAME = Moodaily;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -651,10 +654,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Moodaily/Moodaily.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MA9ZVR88CQ;
 				INFOPLIST_FILE = Moodaily/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Moodaily – дневник настоения";
+				INFOPLIST_KEY_CFBundleDisplayName = "Moodaily – дневник настроения";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -670,10 +674,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.shbov.ru.moodaily.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = Moodaily;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
