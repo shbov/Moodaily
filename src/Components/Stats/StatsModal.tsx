@@ -30,7 +30,7 @@ export class StatsModal extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      year: this.getMinYear(),
+      year: this.getMaxYear(),
     };
   }
 
@@ -83,7 +83,6 @@ export class StatsModal extends React.Component<Props, State> {
         <View style={styles.modal}>
           <View style={styles.pickerContainer}>
             <Text style={styles.choose}>Выберите год</Text>
-            <Text>{this.state.year}</Text>
             <Picker
               selectedValue={this.state.year}
               onValueChange={value =>
@@ -118,6 +117,16 @@ export class StatsModal extends React.Component<Props, State> {
       }
 
       return min;
+    }, new Date().getFullYear());
+  }
+
+  private getMaxYear() {
+    return this.props.years.reduce((max: number, year: YearItem) => {
+      if (Number(year.label) > max) {
+        return Number(year.label);
+      }
+
+      return max;
     }, new Date().getFullYear());
   }
 

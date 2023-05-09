@@ -38,6 +38,17 @@ export class ShowStats extends React.Component<Props, MyComponentState> {
   }
 
   async componentDidMount() {
+    await this.loadAllData();
+
+    this.focusSubscription = this.props.navigation.addListener(
+      'focus',
+      async () => {
+        await this.loadAllData();
+      },
+    );
+  }
+
+  private async loadAllData() {
     const allRecords = await getAllRecords();
     const records = await getRecordsForStats(this.state.year, allRecords);
 
@@ -46,18 +57,6 @@ export class ShowStats extends React.Component<Props, MyComponentState> {
       records: records,
       loading: false,
     });
-
-    this.focusSubscription = this.props.navigation.addListener(
-      'focus',
-      async () => {
-        this.setState({
-          records: await getRecordsForStats(
-            this.state.year,
-            await getAllRecords(),
-          ),
-        });
-      },
-    );
   }
 
   async componentDidUpdate(
@@ -153,7 +152,7 @@ export class ShowStats extends React.Component<Props, MyComponentState> {
     }
 
     this.setState({
-      years: years,
+      years: _.sortBy(years, 'label').reverse(),
     });
   }
 
