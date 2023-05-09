@@ -1,6 +1,27 @@
 import {ImageSourcePropType} from 'react-native';
 
 export const Emotion = {
+  // Страх
+  anxious: {
+    name: 'Тревожный',
+    source: require('@assets/emotions/anxious.png'),
+  },
+
+  // Интерес
+  exited: {
+    name: 'Взволнованный',
+    source: require('@assets/emotions/excited.png'),
+  },
+  inspired: {
+    name: 'Вдохновленный',
+    source: require('@assets/emotions/inspired.png'),
+  },
+  boring: {
+    name: 'Скучный',
+    source: require('@assets/emotions/boring.png'),
+  },
+
+  // Радость
   happy: {
     name: 'Счастливый',
     source: require('@assets/emotions/happy.png'),
@@ -9,38 +30,33 @@ export const Emotion = {
     name: 'Радостный',
     source: require('@assets/emotions/joyful.png'),
   },
-
-  exited: {
-    name: 'Взволнованный',
-    source: require('@assets/emotions/excited.png'),
+  peace: {
+    name: 'Спокойный',
+    source: require('@assets/emotions/peace.png'),
   },
 
-  chill: {
-    name: 'Расслабленный',
-    source: require('@assets/emotions/chill.png'),
-  },
-
-  confused: {
-    name: 'Запутанный',
-    source: require('@assets/emotions/confused.png'),
-  },
-  concerned: {
-    name: 'Обеспокоенный',
-    source: require('@assets/emotions/concerned.png'),
-  },
+  // Грусть
   apathetic: {
     name: 'Апатичный',
     source: require('@assets/emotions/apathetic.png'),
   },
+  grieving: {
+    name: 'Горюющий',
+    source: require('@assets/emotions/grief.png'),
+  },
+  tearfulness: {
+    name: 'Плаксивый',
+    source: require('@assets/emotions/tearfulness.png'),
+  },
 
+  // Злость
   angry: {
     name: 'Злой',
     source: require('@assets/emotions/anger.png'),
   },
-
-  anxious: {
-    name: 'Тревожный',
-    source: require('@assets/emotions/anxious.png'),
+  offense: {
+    name: 'Обиженный',
+    source: require('@assets/emotions/offense.png'),
   },
 };
 

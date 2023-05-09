@@ -20,6 +20,7 @@ export const Colors = {
 
 export const StyleConstant = {
   paddingVertical: 24,
+  emotionSize: 48,
 
   hover: {
     opacity: 0.85,

@@ -35,44 +35,7 @@ export class StatsModal extends React.Component<Props, State> {
   }
 
   render() {
-    const styles = StyleSheet.create({
-      modal: {
-        ...Style.centered,
-
-        backgroundColor: 'rgba(16, 24, 40, 0.5)',
-        flex: 1,
-      },
-
-      pickerContainer: {
-        backgroundColor: Colors.white,
-        borderRadius: Style.button.borderRadius,
-        padding: Style.container.paddingHorizontal,
-        width:
-          Dimensions.get('window').width -
-          2 * Style.container.paddingHorizontal,
-      },
-
-      choose: {
-        ...Style.text,
-
-        fontWeight: '500',
-        fontSize: 16,
-        lineHeight: 24,
-
-        color: Colors.dark,
-      },
-
-      ready: {
-        ...Style.text,
-
-        fontWeight: '500',
-        fontSize: 16,
-        lineHeight: 24,
-
-        color: Colors.primary,
-        alignSelf: 'flex-end',
-      },
-    });
+    const styles = this.getStyles();
 
     return (
       <Modal
@@ -110,14 +73,45 @@ export class StatsModal extends React.Component<Props, State> {
     );
   }
 
-  private getMinYear() {
-    return this.props.years.reduce((min: number, year: YearItem) => {
-      if (Number(year.label) < min) {
-        return Number(year.label);
-      }
+  private getStyles() {
+    return StyleSheet.create({
+      modal: {
+        ...Style.centered,
 
-      return min;
-    }, new Date().getFullYear());
+        backgroundColor: 'rgba(16, 24, 40, 0.5)',
+        flex: 1,
+      },
+
+      pickerContainer: {
+        backgroundColor: Colors.white,
+        borderRadius: Style.button.borderRadius,
+        padding: Style.container.paddingHorizontal,
+        width:
+          Dimensions.get('window').width -
+          2 * Style.container.paddingHorizontal,
+      },
+
+      choose: {
+        ...Style.text,
+
+        fontWeight: '500',
+        fontSize: 16,
+        lineHeight: 24,
+
+        color: Colors.dark,
+      },
+
+      ready: {
+        ...Style.text,
+
+        fontWeight: '500',
+        fontSize: 16,
+        lineHeight: 24,
+
+        color: Colors.primary,
+        alignSelf: 'flex-end',
+      },
+    });
   }
 
   private getMaxYear() {

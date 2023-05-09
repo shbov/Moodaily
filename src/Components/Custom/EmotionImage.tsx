@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomImage from './CustomImage';
 import {Emotion, EmotionType} from '../../Types/Emotion';
+import {StyleConstant} from '../../Styles/Style';
 
 type Props = {
   key: string;
@@ -17,7 +18,7 @@ export const EmotionImage = (props: Props) => {
     return (
       <CustomImage
         source={require('../../../assets/emotions/empty.png')}
-        width={props.width ?? 48}
+        width={props.width ?? StyleConstant.emotionSize}
         key={props.name}
       />
     );
@@ -26,7 +27,7 @@ export const EmotionImage = (props: Props) => {
   return (
     <CustomImage
       source={emotion.source}
-      width={props.width ?? 48}
+      width={props.width ?? StyleConstant.emotionSize}
       key={emotion.name}
     />
   );

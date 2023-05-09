@@ -1,6 +1,4 @@
 import {
-  Alert,
-  BackHandler,
   Image,
   ScrollView,
   StyleSheet,
@@ -145,13 +143,13 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
         alignItems: 'center',
         flexWrap: 'wrap',
         rowGap: 16,
-        columnGap: 8,
+        columnGap: 4,
       },
 
       top: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 6,
+        justifyContent: 'space-between',
         marginBottom: 16,
       },
 
@@ -159,23 +157,47 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
         marginTop: 'auto',
         marginHorizontal: -1 * Style.container.paddingHorizontal,
       },
+
+      date: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+      },
+
+      more: {
+        ...Style.text,
+
+        fontWeight: '400',
+        fontSize: 14,
+        lineHeight: 17,
+
+        color: Colors.dark,
+        alignSelf: 'flex-end',
+      },
     });
 
     return (
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps="handled">
-          <TouchableOpacity
-            style={styles.top}
-            activeOpacity={StyleConstant.hover.opacity}
-            onPress={() => this.setState({openDateModal: true})}>
-            <Text style={styles.created_at}>
-              {formatDate(this.state.record.created_at)}
-            </Text>
-            <Image
-              source={require('../../../assets/images/icon-edit.png')}
-              style={{width: 16, height: 16}}
-            />
-          </TouchableOpacity>
+          <View style={styles.top}>
+            <TouchableOpacity
+              activeOpacity={StyleConstant.hover.opacity}
+              style={styles.date}
+              onPress={() => this.setState({openDateModal: true})}>
+              <Text style={styles.created_at}>
+                {formatDate(this.state.record.created_at)}
+              </Text>
+              <Image
+                source={require('../../../assets/images/icon-edit.png')}
+                style={{width: 16, height: 16}}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={StyleConstant.hover.opacity}
+              onPress={() => this.props.navigation.navigate('AllEmotions')}>
+              <Text style={styles.more}>Подробнее об эмоциях</Text>
+            </TouchableOpacity>
+          </View>
 
           <View style={styles.emotions}>
             {Object.values(Emotion).map(emotion => (
@@ -187,8 +209,8 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
                   opacity: this.getOpacity(emotion),
                 }}
                 stylesImage={{
-                  width: 48,
-                  height: 48,
+                  width: StyleConstant.emotionSize * 1.1,
+                  height: StyleConstant.emotionSize * 1.1,
                 }}
               />
             ))}
@@ -210,7 +232,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
           <CustomTextInput
             titleStyle={styles.desc}
             value={this.state.record.description}
-            placeholder={'Расскажи, что произошло сегодня'}
+            placeholder={'Расскажи, что произошло за день'}
             onChangeText={this.updateDesc}
             error={this.state.errors.description}
             type="description"
@@ -298,7 +320,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       isEdited: true,
       record: {
         ...this.state.record,
-        emotions: emotions,
+        emotions: _.uniq(emotions),
       },
     });
   }
@@ -308,7 +330,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       return 1;
     }
 
-    return 0.3;
+    return 1 - StyleConstant.hover.opacity / 1.2;
   }
 
   private getTextLabel(): string {

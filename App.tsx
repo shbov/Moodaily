@@ -13,6 +13,7 @@ import {CreateAndEdit} from './src/Pages/Record/CreateAndEdit';
 import {Colors, Style} from './src/Styles/Style';
 import {ShowRecord} from './src/Pages/Record/ShowRecord';
 import {TransparentButton} from './src/Components/Custom/TransparentButton';
+import {AllEmotions} from './src/Pages/AllEmotions';
 
 interface MyComponentState {
   showOnboarding: boolean;
@@ -93,6 +94,14 @@ class App extends React.Component<Props, MyComponentState> {
             />
 
             <Stack.Group screenOptions={{presentation: 'modal'}}>
+              <Stack.Screen
+                name={'AllEmotions'}
+                component={AllEmotions}
+                options={{
+                  ...headerSettings,
+                  title: 'Все эмоции',
+                }}
+              />
               <Stack.Screen
                 name={'CreateAndEdit'}
                 component={CreateAndEdit}

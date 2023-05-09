@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {getMonthByDate} from '../../Functions/getMonthByDate';
 import {EmotionImage} from '../Custom/EmotionImage';
-import {Colors, Style} from '../../Styles/Style';
+import {Colors, Style, StyleConstant} from '../../Styles/Style';
 
 type Props = {
   item: any;
@@ -61,7 +61,7 @@ export class Month extends React.Component<Props, State> {
       emotions: {
         flexDirection: 'row',
         alignItems: 'flex-end',
-        gap: 8,
+        gap: 4,
       },
 
       emotion: {
@@ -81,8 +81,8 @@ export class Month extends React.Component<Props, State> {
   }
 
   private getWidth(percentage: number) {
-    const minWidth = 48;
-    const maxWidth = 64;
+    const minWidth = StyleConstant.emotionSize;
+    const maxWidth = StyleConstant.emotionSize * 1.5;
 
     return Math.floor(minWidth + ((maxWidth - minWidth) * percentage) / 100);
   }

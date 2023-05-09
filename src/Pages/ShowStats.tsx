@@ -7,12 +7,11 @@ import {getAllRecords, getRecordsForStats} from '../Actions/Record';
 import Empty from '../Components/Record/Empty';
 import CustomImage from '../Components/Custom/CustomImage';
 import {Record} from '../Types/Record';
-import {StatsModal} from '../Components/Stats/StatsModal';
+import {StatsModal} from '../Components/Modals/StatsModal';
 import {Month} from '../Components/Stats/Month';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-type Props = {
-  navigation: any;
-};
+type Props = NativeStackScreenProps<any> & {};
 
 interface MyComponentState {
   records: any[];
