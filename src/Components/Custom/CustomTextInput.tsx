@@ -1,5 +1,5 @@
 import {Keyboard, StyleSheet, Text, TextInput, View} from 'react-native';
-import {Colors} from '../../Styles/Style';
+import {Colors, Style} from '../../Styles/Style';
 import React from 'react';
 
 type Props = {
@@ -8,12 +8,12 @@ type Props = {
   placeholder: string;
   onChangeText: (text: string) => void;
   error: string | undefined;
-  onSubmitEditing: () => void;
-  refName: any;
+  type: string;
 };
 
 export const ErrorStyles = StyleSheet.create({
   error: {
+    ...Style.text,
     fontWeight: '500',
     fontSize: 14,
     lineHeight: 17,
@@ -25,9 +25,10 @@ export const ErrorStyles = StyleSheet.create({
 
 export const CustomTextInput = (props: Props) => {
   const handleSubmitEditing = () => {
-    props.onSubmitEditing();
+    Keyboard.dismiss();
   };
 
+  const autoFocus = props.type === 'title';
   return (
     <View>
       <TextInput
@@ -40,8 +41,7 @@ export const CustomTextInput = (props: Props) => {
         multiline={true}
         blurOnSubmit={true}
         onSubmitEditing={handleSubmitEditing}
-        returnKeyType="done"
-        ref={props.refName}
+        autoFocus={autoFocus}
       />
 
       {props.error && <Text style={ErrorStyles.error}>{props.error}</Text>}

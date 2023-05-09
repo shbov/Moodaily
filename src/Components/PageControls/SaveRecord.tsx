@@ -4,6 +4,7 @@ import {Colors, Style} from '../../Styles/Style';
 
 type Props = {
   onClick: any;
+  text: string;
 };
 
 export const SaveRecord = (props: Props) => {
@@ -14,6 +15,7 @@ export const SaveRecord = (props: Props) => {
       borderTopColor: Colors.grey,
       borderTopWidth: 1,
       paddingVertical: 16,
+      marginBottom: 16,
     },
 
     label: {
@@ -29,7 +31,7 @@ export const SaveRecord = (props: Props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={props.onClick}>
-        <Text style={styles.label}>Готово</Text>
+        <Text style={styles.label}>{props.text}</Text>
       </TouchableOpacity>
     </View>
   );

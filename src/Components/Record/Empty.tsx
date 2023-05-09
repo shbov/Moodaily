@@ -1,12 +1,23 @@
 import React from 'react';
 import {BlockWithImageAndText} from '../Custom/BlockWithImageAndText';
 
-class Empty extends React.Component {
+interface State {}
+
+type Props = {
+  label: string;
+  desc: string;
+};
+
+class Empty extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+  }
+
   render() {
     return (
       <BlockWithImageAndText
-        title={'Здесь будут ваши записи'}
-        desc={'Создавайте и храните заметки о своём настроении'}
+        title={this.props.label}
+        desc={this.props.desc}
         source={require('../../../assets/images/empty-entity.png')}
       />
     );

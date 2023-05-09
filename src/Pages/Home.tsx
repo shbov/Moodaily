@@ -1,10 +1,10 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 import React from 'react';
 import {Colors, Style, StyleConstant} from '../Styles/Style';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {ShowAllRecords} from './Record/ShowAllRecords';
+import {ShowStats} from './ShowStats';
 
 const styles = StyleSheet.create({
   container: {
@@ -52,21 +52,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: Style.container.paddingHorizontal,
     flex: 1,
   },
-
-  scrollview: {
-    paddingTop: 60,
-  },
 });
 
-function SettingsScreen() {
-  return (
-    <View style={styles.main}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-const Home = ({navigation}: NativeStackScreenProps<any>) => {
+const Home = () => {
   const Tab = createMaterialTopTabNavigator();
 
   return (
@@ -92,15 +80,8 @@ const Home = ({navigation}: NativeStackScreenProps<any>) => {
           }}
         />
         <Tab.Screen
-          name="SettingsScreen1"
-          component={SettingsScreen}
-          options={{
-            title: 'Анализ',
-          }}
-        />
-        <Tab.Screen
-          name="SettingsScreen2"
-          component={SettingsScreen}
+          name="ShowStats"
+          component={ShowStats}
           options={{
             title: 'Статистика',
           }}

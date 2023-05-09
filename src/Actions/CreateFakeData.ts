@@ -8,7 +8,11 @@ export const generateFakeData = async () => {
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
       title: 'Ура, каникулы!',
-      emotions: [Emotion.happy, Emotion.chill, Emotion.joyful],
+      emotions: [
+        Emotion.joyful.name,
+        Emotion.chill.name,
+        Emotion.apathetic.name,
+      ],
       description:
         'Сегодня был последний день занятий, к счастью, я смогла все сдать и могу спокойно отдыхать! Я и не ожидала, что время так быстро пролетит. Сейчас я уже начала составлять планы, надеюсь, что смогу их продержатся',
     });

@@ -1,17 +1,33 @@
-import {EmotionType} from 'Enums/Emotion';
 import React from 'react';
 import CustomImage from './CustomImage';
+import {Emotion, EmotionType} from '../../Types/Emotion';
 
 type Props = {
-  emotion: EmotionType;
+  key: string;
+  name: string;
+  width?: number;
 };
 
 export const EmotionImage = (props: Props) => {
+  const emotion: EmotionType | undefined = Object.values(Emotion).find(
+    (item: EmotionType) => item.name === props.name,
+  );
+
+  if (!emotion) {
+    return (
+      <CustomImage
+        source={require('../../../assets/emotions/empty.png')}
+        width={props.width ?? 48}
+        key={props.name}
+      />
+    );
+  }
+
   return (
     <CustomImage
-      source={props.emotion.source}
-      width={48}
-      key={props.emotion.name}
+      source={emotion.source}
+      width={props.width ?? 48}
+      key={emotion.name}
     />
   );
 };

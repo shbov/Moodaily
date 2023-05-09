@@ -1,17 +1,19 @@
 import {
-  Keyboard,
+  Alert,
+  BackHandler,
+  Image,
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
-import React, {Component, useRef} from 'react';
+import React, {Component} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Record} from '../../Types/Record';
 import {formatDate} from '../../Functions/formatDate';
-import {addRecord, getFreeID, getRecord} from '../../Actions/Record';
+import {addRecord, getRecord} from '../../Actions/Record';
 import {TransparentButton} from '../../Components/Custom/TransparentButton';
 import DatePicker from 'react-native-date-picker';
 import {SaveRecord} from '../../Components/PageControls/SaveRecord';
@@ -20,7 +22,7 @@ import {
   ErrorStyles,
 } from '../../Components/Custom/CustomTextInput';
 import {Emotion, EmotionType} from '../../Types/Emotion';
-import CustomImage from '../../Components/Custom/CustomImage';
+import _ from 'lodash';
 
 interface MyComponentState {
   record: Record;
@@ -28,18 +30,16 @@ interface MyComponentState {
   openDateModal: boolean;
   selectedDate: Date;
   errors: ErrorList;
+  isEdited: boolean;
 }
 
 type ErrorList = {
   [key: string]: string;
 };
 
-type Props = NativeStackScreenProps<any>;
+type Props = NativeStackScreenProps<any> & {};
 
 export class CreateAndEdit extends Component<Props, MyComponentState> {
-  titleRef: React.RefObject<any>;
-  descRef: React.RefObject<any>;
-
   constructor(props: Props) {
     super(props);
 
@@ -47,10 +47,11 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       isLoading: true,
       selectedDate: new Date(),
       openDateModal: false,
+      isEdited: true,
       errors: {},
 
       record: {
-        id: 0,
+        id: -1,
         title: '',
         description: '',
         created_at: new Date().toISOString(),
@@ -58,9 +59,6 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
         emotions: [],
       },
     };
-
-    this.titleRef = React.createRef();
-    this.descRef = React.createRef();
   }
 
   async componentDidMount() {
@@ -69,21 +67,18 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       const record = await getRecord(recordID);
 
       if (record) {
-        this.setState({record: record});
+        this.setState({record: record, isEdited: false});
       }
-    } else {
-      this.setState({
-        record: {
-          ...this.state.record,
-          id: await getFreeID(),
-        },
-      });
     }
 
     this.setState({isLoading: false});
   }
 
   updateTitle = (text: string) => {
+    if (this.state.record.title.trim() !== text) {
+      this.setState({isEdited: true});
+    }
+
     this.setState({
       record: {
         ...this.state.record,
@@ -93,6 +88,10 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
   };
 
   updateDesc = (text: string) => {
+    if (this.state.record.description.trim() !== text) {
+      this.setState({isEdited: true});
+    }
+
     this.setState({
       record: {
         ...this.state.record,
@@ -162,24 +161,21 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       },
     });
 
-    const handleTitleSubmit = () => {
-      this.descRef.current.focus();
-    };
-
     return (
       <View style={styles.container}>
-        <ScrollView>
-          <View style={styles.top}>
+        <ScrollView keyboardShouldPersistTaps="handled">
+          <TouchableOpacity
+            style={styles.top}
+            activeOpacity={StyleConstant.hover.opacity}
+            onPress={() => this.setState({openDateModal: true})}>
             <Text style={styles.created_at}>
               {formatDate(this.state.record.created_at)}
             </Text>
-            <TransparentButton
+            <Image
               source={require('../../../assets/images/icon-edit.png')}
-              onClick={() => this.setState({openDateModal: true})}
-              stylesContainer={{padding: 4}}
-              stylesImage={{width: 16, height: 16}}
+              style={{width: 16, height: 16}}
             />
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.emotions}>
             {Object.values(Emotion).map(emotion => (
@@ -208,8 +204,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
             placeholder={'Заголовок'}
             onChangeText={this.updateTitle}
             error={this.state.errors.title}
-            refName={this.titleRef}
-            onSubmitEditing={handleTitleSubmit}
+            type="title"
           />
 
           <CustomTextInput
@@ -218,8 +213,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
             placeholder={'Расскажи, что произошло сегодня'}
             onChangeText={this.updateDesc}
             error={this.state.errors.description}
-            refName={this.descRef}
-            onSubmitEditing={() => this.saveRecord()}
+            type="description"
           />
         </ScrollView>
 
@@ -229,6 +223,8 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
           date={this.state.selectedDate}
           mode={'date'}
           locale={'ru'}
+          maximumDate={new Date()}
+          minimumDate={new Date(2003, 8, 2)}
           onConfirm={date => {
             this.setState({
               openDateModal: false,
@@ -244,7 +240,10 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
         />
 
         <View style={styles.bottom}>
-          <SaveRecord onClick={() => this.saveRecord()} />
+          <SaveRecord
+            onClick={() => this.saveRecord()}
+            text={this.getTextLabel()}
+          />
         </View>
       </View>
     );
@@ -256,14 +255,8 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
     }
 
     addRecord(this.state.record).then(() => {
-      this.props.navigation.replace('ShowRecord', {
-        recordID: this.state.record.id,
-      });
+      this.props.navigation.pop();
     });
-  }
-
-  static isWhitespace(str: string) {
-    return /^\s*$/.test(str);
   }
 
   /*
@@ -277,7 +270,6 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
     this.state.record.description = this.state.record.description.trim();
 
     if (this.state.record.title === '') {
-      console.log('title is empty');
       errors.title = 'Заголовок не может быть пустым';
     }
 
@@ -287,7 +279,6 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
     // }
 
     if (this.state.record.emotions.length === 0) {
-      console.log('emotions is empty');
       errors.emotions = 'Добавьте хотя бы одну эмоцию';
     }
 
@@ -297,13 +288,14 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
 
   private addEmotion(emotion: EmotionType) {
     let emotions = this.state.record.emotions;
-    if (emotions.includes(emotion)) {
-      emotions = emotions.filter(e => e !== emotion);
+    if (emotions.includes(emotion.name)) {
+      emotions = emotions.filter(key => key !== emotion.name);
     } else {
-      emotions.push(emotion);
+      emotions.push(emotion.name);
     }
 
     this.setState({
+      isEdited: true,
       record: {
         ...this.state.record,
         emotions: emotions,
@@ -312,11 +304,18 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
   }
 
   private getOpacity(emotion: EmotionType): number {
-    const em = this.state.record.emotions.find(e => e.name === emotion.name);
-    if (em) {
+    if (this.state.record.emotions.includes(emotion.name)) {
       return 1;
     }
 
     return 0.3;
+  }
+
+  private getTextLabel(): string {
+    if (this.state.record.id === -1) {
+      return 'Добавить';
+    }
+
+    return 'Сохранить';
   }
 }

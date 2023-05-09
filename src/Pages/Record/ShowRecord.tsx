@@ -1,12 +1,13 @@
 import React from 'react';
 import {Record} from '../../Types/Record';
-import {deleteRecord, getRecord} from '../../Actions/Record';
+import {deleteRecord, getAllRecords, getRecord} from '../../Actions/Record';
 import {RecordNotFound} from '../../Components/Record/RecordNotFound';
 import {ActionSheetIOS, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Colors, Style} from '../../Styles/Style';
 import {formatDate} from '../../Functions/formatDate';
 
 import {EmotionImage} from '../../Components/Custom/EmotionImage';
+import {confirmDelete} from '../../Actions/confirmDelete';
 
 interface MyComponentState {
   record: Record | undefined;
@@ -20,8 +21,11 @@ interface Props {
 }
 
 export class ShowRecord extends React.Component<Props, MyComponentState> {
+  focusSubscription: Function = () => {};
+
   constructor(props: Props) {
     super(props);
+
     this.state = {
       record: undefined,
       loading: true,
@@ -30,11 +34,22 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
 
   async componentDidMount() {
     const recordID = this.props.route.params.recordID;
-
     this.setState({
       record: await getRecord(recordID),
       loading: false,
     });
+
+    this.focusSubscription = this.props.navigation.addListener('focus', () => {
+      if (this.state.record && this.state.record?.id !== -1) {
+        getRecord(this.state.record.id).then(record =>
+          this.setState({record: record}),
+        );
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.focusSubscription();
   }
 
   public static onClick(recordTo: number, navigation: any) {
@@ -46,12 +61,16 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
       },
       async buttonIndex => {
         if (buttonIndex === 1) {
-          navigation.replace('CreateAndEdit', {
+          navigation.navigate('CreateAndEdit', {
             recordID: recordTo,
           });
         } else if (buttonIndex === 2) {
-          await deleteRecord(recordTo);
-          navigation.navigate('Home');
+          await confirmDelete(recordTo, async (toDelete: number) => {
+            await deleteRecord(toDelete);
+            navigation.navigate('ShowAllRecords', {
+              records: await getAllRecords(),
+            });
+          });
         }
       },
     );
@@ -117,7 +136,7 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
         {this.state.record.emotions.length > 0 && (
           <View style={styles.emotions}>
             {this.state.record.emotions.map(emotion => (
-              <EmotionImage emotion={emotion} key={emotion.name} />
+              <EmotionImage key={emotion} name={emotion} />
             ))}
           </View>
         )}

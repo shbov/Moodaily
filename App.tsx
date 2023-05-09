@@ -13,9 +13,6 @@ import {CreateAndEdit} from './src/Pages/Record/CreateAndEdit';
 import {Colors, Style} from './src/Styles/Style';
 import {ShowRecord} from './src/Pages/Record/ShowRecord';
 import {TransparentButton} from './src/Components/Custom/TransparentButton';
-import {ActionSheetIOS, StyleSheet, Text, View} from 'react-native';
-import {deleteRecord, getRecord, isRecordExists} from './src/Actions/Record';
-import {ro} from 'date-fns/locale';
 
 interface MyComponentState {
   showOnboarding: boolean;
@@ -95,15 +92,16 @@ class App extends React.Component<Props, MyComponentState> {
               options={{headerShown: false}}
             />
 
-            <Stack.Screen
-              name={'CreateAndEdit'}
-              component={CreateAndEdit}
-              options={({route}) => ({
-                ...headerSettings,
-                title: App.getTitle(route),
-              })}
-            />
-
+            <Stack.Group screenOptions={{presentation: 'modal'}}>
+              <Stack.Screen
+                name={'CreateAndEdit'}
+                component={CreateAndEdit}
+                options={({route}) => ({
+                  ...headerSettings,
+                  title: App.getTitle(route),
+                })}
+              />
+            </Stack.Group>
             <Stack.Screen
               name={'ShowRecord'}
               component={ShowRecord}
@@ -118,9 +116,9 @@ class App extends React.Component<Props, MyComponentState> {
                       height: 24,
                     }}
                     source={require('./assets/images/icon-more-dark.png')}
-                    onClick={() =>
-                      ShowRecord.onClick(route.params.recordID, navigation)
-                    }
+                    onClick={() => {
+                      ShowRecord.onClick(route.params.recordID, navigation);
+                    }}
                   />
                 ),
               })}

@@ -8,13 +8,17 @@ import {deleteRecord, getAllRecords} from '../../Actions/Record';
 import AllRecords from '../../Components/PageControls/AllRecords';
 import {Single} from '../../Components/Record/Single';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {dateCompare} from '../../Functions/dateCompare';
+import {confirmDelete} from '../../Actions/confirmDelete';
 
 interface MyComponentState {
   records: Record[];
   loading: boolean;
 }
 
-type Props = NativeStackScreenProps<any>;
+type Props = NativeStackScreenProps<any> & {
+  records?: Record[];
+};
 
 export class ShowAllRecords extends Component<Props, MyComponentState> {
   constructor(props: Props) {
@@ -31,14 +35,17 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
   async componentDidMount() {
     // await deleteAllRecords();
     // await generateFakeData();
-    const records = await getAllRecords();
-    this.setState({records: records, loading: false});
-    this.focusSubscription = this.props.navigation.addListener(
-      'focus',
-      async () => {
-        this.setState({records: await getAllRecords()});
-      },
-    );
+
+    if (this.props.records) {
+      this.setState({records: this.props.records, loading: false});
+    } else {
+      const records = await getAllRecords();
+      this.setState({records: records, loading: false});
+    }
+
+    this.focusSubscription = this.props.navigation.addListener('focus', () => {
+      getAllRecords().then(records => this.setState({records: records}));
+    });
   }
 
   componentWillUnmount() {
@@ -46,16 +53,7 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
   }
 
   render() {
-    const styles = StyleSheet.create({
-      home: {
-        flex: 1,
-      },
-
-      recordsList: {
-        paddingHorizontal: Style.container.paddingHorizontal,
-        paddingVertical: StyleConstant.paddingVertical,
-      },
-    });
+    const styles = this.getStyles();
 
     const onClick = (recordTo: number) => {
       return ActionSheetIOS.showActionSheetWithOptions(
@@ -70,17 +68,13 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
               recordID: recordTo,
             });
           } else if (buttonIndex === 2) {
-            await this.deleteRecord(recordTo);
+            await confirmDelete(recordTo, (toDelete: number) =>
+              this.deleteRecord(toDelete),
+            );
           }
         },
       );
     };
-
-    function dateCompare(a: Record, b: Record) {
-      return (
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      );
-    }
 
     return (
       <View style={styles.home}>
@@ -88,7 +82,12 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
           <FlatList
             data={this.state.records.sort(dateCompare)}
             contentContainerStyle={styles.recordsList}
-            ListEmptyComponent={<Empty />}
+            ListEmptyComponent={
+              <Empty
+                desc="Создавайте и храните заметки о своём настроении"
+                label="Здесь будут ваши записи"
+              />
+            }
             ItemSeparatorComponent={() => (
               <View
                 style={{
@@ -119,5 +118,18 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
   async deleteRecord(recordTo: number) {
     await deleteRecord(recordTo);
     this.setState({records: await getAllRecords()});
+  }
+
+  private getStyles() {
+    return StyleSheet.create({
+      home: {
+        flex: 1,
+      },
+
+      recordsList: {
+        paddingHorizontal: Style.container.paddingHorizontal,
+        paddingVertical: StyleConstant.paddingVertical,
+      },
+    });
   }
 }

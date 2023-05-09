@@ -16,7 +16,7 @@ const AllRecords = (props: Props) => {
       paddingHorizontal: Style.container.paddingHorizontal,
       borderTopColor: Colors.grey,
       borderTopWidth: 1,
-      paddingVertical: 16,
+      paddingTop: 20,
     },
 
     label: {

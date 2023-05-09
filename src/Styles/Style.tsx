@@ -15,13 +15,16 @@ export const Colors = {
   grey: '#D9D9D9',
 
   danger: '#F7867E',
+  backgroundAccent: 'rgba(245, 235, 229, 1)',
 };
 
 export const StyleConstant = {
   paddingVertical: 24,
+
   hover: {
     opacity: 0.85,
   },
+
   viewScreen: {
     proMax: 428,
     pro: 375,
@@ -39,7 +42,7 @@ export const Style = StyleSheet.create({
   },
 
   text: {
-    fontFamily: 'Inter',
+    // fontFamily: 'Inter',
     fontStyle: 'normal',
   },
 
@@ -64,5 +67,10 @@ export const Style = StyleSheet.create({
   item: {
     paddingHorizontal: 18,
     paddingVertical: 12,
+  },
+
+  bigItem: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
   },
 });

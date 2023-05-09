@@ -4,7 +4,7 @@ import {Record} from '../../Types/Record';
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
 import {TransparentButton} from '../Custom/TransparentButton';
 import {formatDate} from '../../Functions/formatDate';
-import {EmotionImage} from '../../Components/Custom/EmotionImage';
+import {EmotionImage} from '../Custom/EmotionImage';
 
 type Props = {
   record: Record;
@@ -82,22 +82,6 @@ export const Single = (props: Props) => {
     },
   });
 
-  // const _renderTruncatedFooter = (handlePress: any) => {
-  //   return (
-  //     <Text style={styles.readMore} onPress={handlePress}>
-  //       Подробнее
-  //     </Text>
-  //   );
-  // };
-  //
-  // const _renderRevealedFooter = (handlePress: any) => {
-  //   return (
-  //     <Text style={styles.readMore} onPress={handlePress}>
-  //       Скрыть
-  //     </Text>
-  //   );
-  // };
-
   const onClick = () => {
     props.navigation.navigate('ShowRecord', {
       recordID: props.record.id,
@@ -124,21 +108,16 @@ export const Single = (props: Props) => {
 
         <Text style={styles.title}>{props.record.title}</Text>
 
-        {/*<ReadMore*/}
-        {/*  numberOfLines={3}*/}
-        {/*  renderTruncatedFooter={_renderTruncatedFooter}*/}
-        {/*  renderRevealedFooter={_renderRevealedFooter}>*/}
-        {/*  <Text style={styles.desc}>{props.record.description}</Text>*/}
-        {/*</ReadMore>*/}
-
-        <Text numberOfLines={3} style={styles.desc}>
-          {props.record.description}
-        </Text>
+        {props.record.description.trim() !== '' && (
+          <Text numberOfLines={3} style={styles.desc}>
+            {props.record.description}
+          </Text>
+        )}
 
         {props.record.emotions.length > 0 && (
           <View style={styles.emotions}>
             {props.record.emotions.map(emotion => (
-              <EmotionImage emotion={emotion} key={emotion.name} />
+              <EmotionImage key={emotion} name={emotion} />
             ))}
           </View>
         )}
