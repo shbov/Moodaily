@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Colors, Style} from '../../Styles/Style';
-import {TransparentButton} from '../Custom/TransparentButton';
+import {TransparentButton} from '../Buttons/TransparentButton';
 import {getWordEnding} from '../../Functions/getWordEnding';
 
 type Props = {

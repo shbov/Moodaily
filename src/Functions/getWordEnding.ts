@@ -1,3 +1,8 @@
+/**
+ * Возвращает месяц по его номеру
+ * @param number - номер месяца
+ * @param words - массив слов
+ */
 export function getWordEnding(number: number, words: string[]) {
   const cases = [2, 0, 1, 1, 1, 2];
   const wordIndex =

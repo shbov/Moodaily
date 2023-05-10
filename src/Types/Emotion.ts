@@ -1,65 +1,103 @@
 import {ImageSourcePropType} from 'react-native';
 
+/**
+ * Доступные эмоции
+ */
 export const Emotion = {
-  // Страх
-  anxious: {
-    name: 'Тревожный',
-    source: require('@assets/emotions/anxious.png'),
-  },
-
   // Интерес
   exited: {
-    name: 'Взволнованный',
+    name: 'Взволнованность',
     source: require('@assets/emotions/excited.png'),
   },
   inspired: {
-    name: 'Вдохновленный',
+    name: 'Вдохновленность',
     source: require('@assets/emotions/inspired.png'),
   },
+  surprized: {
+    name: 'Удивление',
+    source: require('@assets/emotions/surprized.png'),
+  },
   boring: {
-    name: 'Скучный',
+    name: 'Скука',
     source: require('@assets/emotions/boring.png'),
   },
 
   // Радость
   happy: {
-    name: 'Счастливый',
+    name: 'Счастье',
     source: require('@assets/emotions/happy.png'),
   },
   joyful: {
-    name: 'Радостный',
+    name: 'Радость',
     source: require('@assets/emotions/joyful.png'),
   },
   peace: {
-    name: 'Спокойный',
+    name: 'Покой',
     source: require('@assets/emotions/peace.png'),
+  },
+  safety: {
+    name: 'Безопасность',
+    source: require('@assets/emotions/safety.png'),
   },
 
   // Грусть
   apathetic: {
-    name: 'Апатичный',
+    name: 'Апатия',
     source: require('@assets/emotions/apathetic.png'),
   },
-  grieving: {
-    name: 'Горюющий',
-    source: require('@assets/emotions/grief.png'),
+  tired: {
+    name: 'Усталость',
+    source: require('@assets/emotions/tired.png'),
   },
   tearfulness: {
-    name: 'Плаксивый',
+    name: 'Слезливость',
     source: require('@assets/emotions/tearfulness.png'),
+  },
+  sad: {
+    name: 'Грусть',
+    source: require('@assets/emotions/sad.png'),
+  },
+  grieving: {
+    name: 'Горе',
+    source: require('@assets/emotions/grief.png'),
+  },
+
+  // Страх
+  anxious: {
+    name: 'Тревога',
+    source: require('@assets/emotions/anxious.png'),
+  },
+  shame: {
+    name: 'Стыд',
+    source: require('@assets/emotions/shame.png'),
+  },
+  offense: {
+    name: 'Обида',
+    source: require('@assets/emotions/offense.png'),
+  },
+  anxiety: {
+    name: 'Обеспокоенность',
+    source: require('@assets/emotions/anxiety.png'),
   },
 
   // Злость
-  angry: {
-    name: 'Злой',
-    source: require('@assets/emotions/anger.png'),
+  jealous: {
+    name: 'Ревность',
+    source: require('@assets/emotions/jealous.png'),
   },
-  offense: {
-    name: 'Обиженный',
-    source: require('@assets/emotions/offense.png'),
+  irritated: {
+    name: 'Раздражение',
+    source: require('@assets/emotions/irritability.png'),
+  },
+  angry: {
+    name: 'Злость',
+    source: require('@assets/emotions/anger.png'),
   },
 };
 
+/**
+ * Тип эмоции
+ */
 export type EmotionType = {
   name: string;
   source: ImageSourcePropType;

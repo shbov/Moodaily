@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Record} from '../../Types/Record';
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
-import {TransparentButton} from '../Custom/TransparentButton';
+import {TransparentButton} from '../Buttons/TransparentButton';
 import {formatDate} from '../../Functions/formatDate';
 import {EmotionImage} from '../Custom/EmotionImage';
 
@@ -76,9 +76,10 @@ export const Single = (props: Props) => {
 
     emotions: {
       flexDirection: 'row',
-      gap: 4,
       alignItems: 'center',
+      flexWrap: 'wrap',
       marginTop: 8,
+      gap: 4,
     },
   });
 

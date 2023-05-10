@@ -3,6 +3,12 @@ import CustomImage from './CustomImage';
 import {Emotion, EmotionType} from '../../Types/Emotion';
 import {StyleConstant} from '../../Styles/Style';
 
+/**
+ * @typedef {object} Props
+ * @param {string} key
+ * @param {string} name
+ * @param {number} width
+ */
 type Props = {
   key: string;
   name: string;

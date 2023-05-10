@@ -8,39 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MoodailyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoodailyTests.m */; };
-		09BB4478F75E483A8DF8C183 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0E50871D08A46E09174C038 /* Inter-ExtraBold.otf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Moodaily.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Moodaily.a */; };
-		0EA347446ABD49EF9FE90B8C /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2ECEDCC93FD84D25964C92D9 /* Inter-Bold.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		163D0B7767964590BAD20500 /* Steppe-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43B3C45F71F4483289A47EF1 /* Steppe-Thin.ttf */; };
-		2265A8263017467DBC7A9EAE /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7D00E9C04DC74BFC964B21DF /* Inter-MediumItalic.otf */; };
-		37CB37FD5D7841D8AF66E2BE /* Steppe-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4ADEBA2315446E3A0FEC68C /* Steppe-SemiBold.ttf */; };
-		4D47F23F7E2F463A8687F98F /* Steppe-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97DB4449084B4ED290E0C068 /* Steppe-Black.ttf */; };
-		4D66AAE32AE54B71A3F7ABEA /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81938E2136484781BA2F2D4E /* Inter-Medium.otf */; };
-		57A729EA42A44A3DA5EBB6A8 /* Inter-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFECD75438D45FBB1CE4EDD /* Inter-Thin.otf */; };
-		5CE22AD6FB924D919D1EF446 /* Inter-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78E8D72212B247A5B2C119BB /* Inter-ExtraLightItalic.otf */; };
-		5F9CC865CC7748F8804BF333 /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3CB79641FD2D4B189DF24872 /* Inter-Light.otf */; };
-		7287F30DBB354AA086049B05 /* Steppe-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEEB9D4137464A2087380DC4 /* Steppe-ExtraBold.ttf */; };
+		2CBCC8BE7716A0738AC4FE3A /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71117A305EF73C88F9DBDC7 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-Moodaily-MoodailyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moodaily-MoodailyTests.a */; };
-		7C19C0F32CBC4D31BE998586 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D404DA2404847F1B0BD15BF /* Inter-Italic.otf */; };
-		806BE7C7023A4F1BA2B1929E /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DF4E53C425F74029BBD86D7B /* Inter-ExtraBoldItalic.otf */; };
-		8126C722D2054C9F9969D40B /* Steppe-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1BDC99C01FD4F7A92DA95E9 /* Steppe-Medium.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A15C0CEB67D94FDD9AA46AE8 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81AA5F58E4624D9CB88F63E5 /* Inter-BoldItalic.otf */; };
-		A694EA387F414C51851208F3 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B57FEF4E7444577810DA5EE /* Inter-Regular.otf */; };
-		B5FE4353FDF8445AB90AF38B /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90DD880888D24600BDB7AC4E /* Inter-SemiBold.otf */; };
-		B63C7B80AD0B44FCB03E7C1A /* Steppe-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89DA4543B18F480EB61A05B1 /* Steppe-Book.ttf */; };
-		B8FC745C807444A79C3197DE /* Steppe-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2921E204CB945498DDC45F1 /* Steppe-Regular.ttf */; };
-		BADC7DD0DDC449E38BE2E199 /* Inter-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 002677C18E75456992327FC4 /* Inter-LightItalic.otf */; };
-		BF9408E8AE97476DBE2EEEE3 /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 687727A9E91C4E0FAB82ABD6 /* Inter-BlackItalic.otf */; };
-		C7F78EF54A0B405785704670 /* Inter-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E77BF97DD39E469D963DBD69 /* Inter-ExtraLight.otf */; };
-		D62829DF81F54344A0E5DFE9 /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72C36E0E69CD42628371C14D /* Inter-SemiBoldItalic.otf */; };
-		DF3D32D0E6204C27B83E60A3 /* Steppe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DD935EC3AF646D48210BFC5 /* Steppe-Bold.ttf */; };
-		ED9E5F850FE04B37B5712138 /* Inter-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C0CE54FC57646EE857CB7C3 /* Inter-ThinItalic.otf */; };
-		F99D879A28444137B772E4E0 /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 93DEED5507094DCEA0440FA6 /* Inter-Black.otf */; };
-		FCA3FBFC36BD4E81BF8CD11E /* Steppe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFF3199AF5734BF7999A0CC4 /* Steppe-Light.ttf */; };
+		8BC36C786D3CE28FFA5DB9E4 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D93BA59202E82C6FDA2897 /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002677C18E75456992327FC4 /* Inter-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-LightItalic.otf"; path = "../assets/fonts/Inter-LightItalic.otf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* MoodailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MoodailyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoodailyTests.m; sourceTree = "<group>"; };
@@ -65,40 +39,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Moodaily/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Moodaily/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moodaily-MoodailyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moodaily-MoodailyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ECEDCC93FD84D25964C92D9 /* Inter-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.otf"; path = "../assets/fonts/Inter-Bold.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Moodaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moodaily.debug.xcconfig"; path = "Target Support Files/Pods-Moodaily/Pods-Moodaily.debug.xcconfig"; sourceTree = "<group>"; };
-		3CB79641FD2D4B189DF24872 /* Inter-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.otf"; path = "../assets/fonts/Inter-Light.otf"; sourceTree = "<group>"; };
-		43B3C45F71F4483289A47EF1 /* Steppe-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Thin.ttf"; path = "../assets/fonts/Steppe-Thin.ttf"; sourceTree = "<group>"; };
-		4CFECD75438D45FBB1CE4EDD /* Inter-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.otf"; path = "../assets/fonts/Inter-Thin.otf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Moodaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moodaily.release.xcconfig"; path = "Target Support Files/Pods-Moodaily/Pods-Moodaily.release.xcconfig"; sourceTree = "<group>"; };
-		5B57FEF4E7444577810DA5EE /* Inter-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.otf"; path = "../assets/fonts/Inter-Regular.otf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Moodaily-MoodailyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moodaily-MoodailyTests.debug.xcconfig"; path = "Target Support Files/Pods-Moodaily-MoodailyTests/Pods-Moodaily-MoodailyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Moodaily.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moodaily.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		687727A9E91C4E0FAB82ABD6 /* Inter-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-BlackItalic.otf"; path = "../assets/fonts/Inter-BlackItalic.otf"; sourceTree = "<group>"; };
-		6DD935EC3AF646D48210BFC5 /* Steppe-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Bold.ttf"; path = "../assets/fonts/Steppe-Bold.ttf"; sourceTree = "<group>"; };
-		72C36E0E69CD42628371C14D /* Inter-SemiBoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBoldItalic.otf"; path = "../assets/fonts/Inter-SemiBoldItalic.otf"; sourceTree = "<group>"; };
-		78E8D72212B247A5B2C119BB /* Inter-ExtraLightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLightItalic.otf"; path = "../assets/fonts/Inter-ExtraLightItalic.otf"; sourceTree = "<group>"; };
-		7C0CE54FC57646EE857CB7C3 /* Inter-ThinItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ThinItalic.otf"; path = "../assets/fonts/Inter-ThinItalic.otf"; sourceTree = "<group>"; };
-		7D00E9C04DC74BFC964B21DF /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-MediumItalic.otf"; path = "../assets/fonts/Inter-MediumItalic.otf"; sourceTree = "<group>"; };
-		81938E2136484781BA2F2D4E /* Inter-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.otf"; path = "../assets/fonts/Inter-Medium.otf"; sourceTree = "<group>"; };
-		81AA5F58E4624D9CB88F63E5 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-BoldItalic.otf"; path = "../assets/fonts/Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		76D93BA59202E82C6FDA2897 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Moodaily-MoodailyTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Moodaily/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Moodaily-MoodailyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moodaily-MoodailyTests.release.xcconfig"; path = "Target Support Files/Pods-Moodaily-MoodailyTests/Pods-Moodaily-MoodailyTests.release.xcconfig"; sourceTree = "<group>"; };
-		89DA4543B18F480EB61A05B1 /* Steppe-Book.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Book.ttf"; path = "../assets/fonts/Steppe-Book.ttf"; sourceTree = "<group>"; };
-		90DD880888D24600BDB7AC4E /* Inter-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.otf"; path = "../assets/fonts/Inter-SemiBold.otf"; sourceTree = "<group>"; };
-		93DEED5507094DCEA0440FA6 /* Inter-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.otf"; path = "../assets/fonts/Inter-Black.otf"; sourceTree = "<group>"; };
-		97DB4449084B4ED290E0C068 /* Steppe-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Black.ttf"; path = "../assets/fonts/Steppe-Black.ttf"; sourceTree = "<group>"; };
-		9D404DA2404847F1B0BD15BF /* Inter-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Italic.otf"; path = "../assets/fonts/Inter-Italic.otf"; sourceTree = "<group>"; };
 		A0362DE42A080DB300AB5810 /* Moodaily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Moodaily.entitlements; path = Moodaily/Moodaily.entitlements; sourceTree = "<group>"; };
-		A1BDC99C01FD4F7A92DA95E9 /* Steppe-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Medium.ttf"; path = "../assets/fonts/Steppe-Medium.ttf"; sourceTree = "<group>"; };
-		A2921E204CB945498DDC45F1 /* Steppe-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Regular.ttf"; path = "../assets/fonts/Steppe-Regular.ttf"; sourceTree = "<group>"; };
-		D0E50871D08A46E09174C038 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBold.otf"; path = "../assets/fonts/Inter-ExtraBold.otf"; sourceTree = "<group>"; };
-		DF4E53C425F74029BBD86D7B /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBoldItalic.otf"; path = "../assets/fonts/Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
-		E4ADEBA2315446E3A0FEC68C /* Steppe-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-SemiBold.ttf"; path = "../assets/fonts/Steppe-SemiBold.ttf"; sourceTree = "<group>"; };
-		E77BF97DD39E469D963DBD69 /* Inter-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLight.otf"; path = "../assets/fonts/Inter-ExtraLight.otf"; sourceTree = "<group>"; };
+		A71117A305EF73C88F9DBDC7 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Moodaily/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		EEEB9D4137464A2087380DC4 /* Steppe-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-ExtraBold.ttf"; path = "../assets/fonts/Steppe-ExtraBold.ttf"; sourceTree = "<group>"; };
-		EFF3199AF5734BF7999A0CC4 /* Steppe-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Steppe-Light.ttf"; path = "../assets/fonts/Steppe-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,36 +112,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2E45DB4B89BAFC772B2A8175 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				935D1DD81BF2A2854D96BEAB /* Moodaily */,
+				863E5ABD0A1A5C99D219CBEF /* MoodailyTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		5EC5978EA4B14A6194010CD2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				97DB4449084B4ED290E0C068 /* Steppe-Black.ttf */,
-				6DD935EC3AF646D48210BFC5 /* Steppe-Bold.ttf */,
-				89DA4543B18F480EB61A05B1 /* Steppe-Book.ttf */,
-				EEEB9D4137464A2087380DC4 /* Steppe-ExtraBold.ttf */,
-				EFF3199AF5734BF7999A0CC4 /* Steppe-Light.ttf */,
-				A1BDC99C01FD4F7A92DA95E9 /* Steppe-Medium.ttf */,
-				A2921E204CB945498DDC45F1 /* Steppe-Regular.ttf */,
-				E4ADEBA2315446E3A0FEC68C /* Steppe-SemiBold.ttf */,
-				43B3C45F71F4483289A47EF1 /* Steppe-Thin.ttf */,
-				93DEED5507094DCEA0440FA6 /* Inter-Black.otf */,
-				687727A9E91C4E0FAB82ABD6 /* Inter-BlackItalic.otf */,
-				2ECEDCC93FD84D25964C92D9 /* Inter-Bold.otf */,
-				81AA5F58E4624D9CB88F63E5 /* Inter-BoldItalic.otf */,
-				D0E50871D08A46E09174C038 /* Inter-ExtraBold.otf */,
-				DF4E53C425F74029BBD86D7B /* Inter-ExtraBoldItalic.otf */,
-				E77BF97DD39E469D963DBD69 /* Inter-ExtraLight.otf */,
-				78E8D72212B247A5B2C119BB /* Inter-ExtraLightItalic.otf */,
-				9D404DA2404847F1B0BD15BF /* Inter-Italic.otf */,
-				3CB79641FD2D4B189DF24872 /* Inter-Light.otf */,
-				002677C18E75456992327FC4 /* Inter-LightItalic.otf */,
-				81938E2136484781BA2F2D4E /* Inter-Medium.otf */,
-				7D00E9C04DC74BFC964B21DF /* Inter-MediumItalic.otf */,
-				5B57FEF4E7444577810DA5EE /* Inter-Regular.otf */,
-				90DD880888D24600BDB7AC4E /* Inter-SemiBold.otf */,
-				72C36E0E69CD42628371C14D /* Inter-SemiBoldItalic.otf */,
-				4CFECD75438D45FBB1CE4EDD /* Inter-Thin.otf */,
-				7C0CE54FC57646EE857CB7C3 /* Inter-ThinItalic.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -213,6 +145,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				5EC5978EA4B14A6194010CD2 /* Resources */,
+				2E45DB4B89BAFC772B2A8175 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -226,6 +159,22 @@
 				00E356EE1AD99517003FC87E /* MoodailyTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		863E5ABD0A1A5C99D219CBEF /* MoodailyTests */ = {
+			isa = PBXGroup;
+			children = (
+				76D93BA59202E82C6FDA2897 /* ExpoModulesProvider.swift */,
+			);
+			name = MoodailyTests;
+			sourceTree = "<group>";
+		};
+		935D1DD81BF2A2854D96BEAB /* Moodaily */ = {
+			isa = PBXGroup;
+			children = (
+				A71117A305EF73C88F9DBDC7 /* ExpoModulesProvider.swift */,
+			);
+			name = Moodaily;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -335,33 +284,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				4D47F23F7E2F463A8687F98F /* Steppe-Black.ttf in Resources */,
-				DF3D32D0E6204C27B83E60A3 /* Steppe-Bold.ttf in Resources */,
-				B63C7B80AD0B44FCB03E7C1A /* Steppe-Book.ttf in Resources */,
-				7287F30DBB354AA086049B05 /* Steppe-ExtraBold.ttf in Resources */,
-				FCA3FBFC36BD4E81BF8CD11E /* Steppe-Light.ttf in Resources */,
-				8126C722D2054C9F9969D40B /* Steppe-Medium.ttf in Resources */,
-				B8FC745C807444A79C3197DE /* Steppe-Regular.ttf in Resources */,
-				37CB37FD5D7841D8AF66E2BE /* Steppe-SemiBold.ttf in Resources */,
-				163D0B7767964590BAD20500 /* Steppe-Thin.ttf in Resources */,
-				F99D879A28444137B772E4E0 /* Inter-Black.otf in Resources */,
-				BF9408E8AE97476DBE2EEEE3 /* Inter-BlackItalic.otf in Resources */,
-				0EA347446ABD49EF9FE90B8C /* Inter-Bold.otf in Resources */,
-				A15C0CEB67D94FDD9AA46AE8 /* Inter-BoldItalic.otf in Resources */,
-				09BB4478F75E483A8DF8C183 /* Inter-ExtraBold.otf in Resources */,
-				806BE7C7023A4F1BA2B1929E /* Inter-ExtraBoldItalic.otf in Resources */,
-				C7F78EF54A0B405785704670 /* Inter-ExtraLight.otf in Resources */,
-				5CE22AD6FB924D919D1EF446 /* Inter-ExtraLightItalic.otf in Resources */,
-				7C19C0F32CBC4D31BE998586 /* Inter-Italic.otf in Resources */,
-				5F9CC865CC7748F8804BF333 /* Inter-Light.otf in Resources */,
-				BADC7DD0DDC449E38BE2E199 /* Inter-LightItalic.otf in Resources */,
-				4D66AAE32AE54B71A3F7ABEA /* Inter-Medium.otf in Resources */,
-				2265A8263017467DBC7A9EAE /* Inter-MediumItalic.otf in Resources */,
-				A694EA387F414C51851208F3 /* Inter-Regular.otf in Resources */,
-				B5FE4353FDF8445AB90AF38B /* Inter-SemiBold.otf in Resources */,
-				D62829DF81F54344A0E5DFE9 /* Inter-SemiBoldItalic.otf in Resources */,
-				57A729EA42A44A3DA5EBB6A8 /* Inter-Thin.otf in Resources */,
-				ED9E5F850FE04B37B5712138 /* Inter-ThinItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* MoodailyTests.m in Sources */,
+				8BC36C786D3CE28FFA5DB9E4 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +455,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				2CBCC8BE7716A0738AC4FE3A /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +493,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.shbov.ru.moodaily--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -599,6 +524,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.shbov.ru.moodaily--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -634,6 +560,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.shbov.ru.moodaily.--PRODUCT-NAME-rfc1034identifier-";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.shbov.ru.moodaily;
 				PRODUCT_NAME = Moodaily;
@@ -671,6 +598,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.shbov.ru.moodaily.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = Moodaily;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -731,7 +659,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -796,7 +724,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

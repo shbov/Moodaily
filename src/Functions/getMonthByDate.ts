@@ -1,9 +1,34 @@
+/**
+ * Возвращает месяц по его номеру
+ * @param month - номер месяца
+ */
 export const getMonthByDate = (month: number): string => {
-  const months =
-    'январь,февраль,март,апрель,май,июнь,июль,август,сентябрь,октябрь,ноябрь,декабрь'.split(
-      ',',
-    );
-
-  const ans = months[month];
-  return ans.charAt(0).toUpperCase() + ans.slice(1);
+  switch (month) {
+    case 0:
+      return 'Январь';
+    case 1:
+      return 'Февраль';
+    case 2:
+      return 'Март';
+    case 3:
+      return 'Апрель';
+    case 4:
+      return 'Май';
+    case 5:
+      return 'Июнь';
+    case 6:
+      return 'Июль';
+    case 7:
+      return 'Август';
+    case 8:
+      return 'Сентябрь';
+    case 9:
+      return 'Октябрь';
+    case 10:
+      return 'Ноябрь';
+    case 11:
+      return 'Декабрь';
+    default:
+      return '';
+  }
 };

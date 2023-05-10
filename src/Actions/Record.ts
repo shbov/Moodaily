@@ -1,15 +1,21 @@
+import _ from 'lodash';
 import {Record} from '../Types/Record';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import _ from 'lodash';
 import {parseISO} from 'date-fns';
 import format from 'date-fns/format';
 
 export const RECORDS_KEY = 'records';
 
+/**
+ * Добавляет запись в хранилище
+ * @param record - запись
+ */
 export const addRecord = async (record: Record) => {
   try {
     const storedRecords = await AsyncStorage.getItem(RECORDS_KEY);
     const records = storedRecords ? JSON.parse(storedRecords) : {};
+
+    // если id = -1, то это новая запись, иначе - редактирование
     if (record.id === -1) {
       record.id = await getFreeID();
     }
@@ -22,12 +28,19 @@ export const addRecord = async (record: Record) => {
   }
 };
 
+/**
+ * Возвращает массив записей
+ */
 async function getRecordsArray(): Promise<Record[]> {
   const storedRecords = await AsyncStorage.getItem(RECORDS_KEY);
   const records = storedRecords ? JSON.parse(storedRecords) : {};
   return Object.values(records);
 }
 
+/**
+ * Возвращает запись по id
+ * @param id - id записи
+ */
 export const getRecord = async (id: number): Promise<Record | undefined> => {
   try {
     const recordsArray = await getRecordsArray();
@@ -37,6 +50,10 @@ export const getRecord = async (id: number): Promise<Record | undefined> => {
   }
 };
 
+/**
+ * Удаляет запись по id
+ * @param id - id записи
+ */
 export const deleteRecord = async (id: number) => {
   try {
     const storedRecords = await AsyncStorage.getItem(RECORDS_KEY);
@@ -48,6 +65,9 @@ export const deleteRecord = async (id: number) => {
   }
 };
 
+/**
+ * Возвращает все записи
+ */
 export const getAllRecords = async (): Promise<Record[]> => {
   console.log('loading data...');
 
@@ -59,6 +79,9 @@ export const getAllRecords = async (): Promise<Record[]> => {
   }
 };
 
+/**
+ * Удаляет все записи
+ */
 export const deleteAllRecords = async () => {
   try {
     await AsyncStorage.removeItem(RECORDS_KEY);
@@ -67,6 +90,9 @@ export const deleteAllRecords = async () => {
   }
 };
 
+/**
+ * Возвращает свободный id для новой записи
+ */
 export const getFreeID = async () => {
   const records = await getAllRecords();
   if (records.length === 0) {
@@ -78,15 +104,22 @@ export const getFreeID = async () => {
   return maxId + 1;
 };
 
+/**
+ * Возвращает записи для статистики
+ * @param year - год
+ * @param allRecords - все записи
+ */
 export const getRecordsForStats = async (
   year: number,
   allRecords: Record[],
 ): Promise<any[]> => {
+  // фильтруем записи по году
   const records = _.filter(
     allRecords,
     item => Number(parseISO(item.created_at).getFullYear()) === Number(year),
   );
 
+  // группируем записи по месяцам
   const recordsByMonth = _.groupBy(records, record => {
     return format(parseISO(record.created_at), 'MM-yyyy');
   });
@@ -96,6 +129,7 @@ export const getRecordsForStats = async (
       const emotionCounts = _.countBy(_.flatMap(recordsInMonth, 'emotions'));
       const totalEmotions = _.sum(_.values(emotionCounts));
 
+      // сортируем по убыванию и берем первые 5
       const topEmotions = _.chain(emotionCounts)
         .toPairs()
         .sortBy(pair => pair[1])
@@ -118,5 +152,6 @@ export const getRecordsForStats = async (
     }),
   );
 
+  // сортируем по убыванию
   return _.orderBy(list, ['year', 'month']).reverse();
 };

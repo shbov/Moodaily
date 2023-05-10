@@ -1,3 +1,6 @@
+/**
+ * Запись в дневнике
+ */
 export type Record = {
   id: number;
   title: string;

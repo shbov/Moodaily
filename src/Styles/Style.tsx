@@ -1,5 +1,8 @@
 import {StyleSheet} from 'react-native';
 
+/**
+ * Доступные цвета
+ */
 export const Colors = {
   primary: 'rgba(245, 143, 85, 1)',
   secondary: 'rgba(16, 24, 40, 0.5)',
@@ -18,6 +21,9 @@ export const Colors = {
   backgroundAccent: 'rgba(245, 235, 229, 1)',
 };
 
+/**
+ * Константы стилей
+ */
 export const StyleConstant = {
   paddingVertical: 24,
   emotionSize: 48,
@@ -32,9 +38,12 @@ export const StyleConstant = {
   },
 };
 
+/**
+ * Стили по умолчанию
+ */
 export const Style = StyleSheet.create({
   container: {
-    paddingHorizontal: 24,
+    paddingHorizontal: StyleConstant.paddingVertical,
     marginTop: StyleConstant.paddingVertical,
   },
 
@@ -43,7 +52,6 @@ export const Style = StyleSheet.create({
   },
 
   text: {
-    // fontFamily: 'Inter',
     fontStyle: 'normal',
   },
 

@@ -1,5 +1,10 @@
 import {Image, ImageSourcePropType} from 'react-native';
 
+/**
+ * Масштабирует высоту изображения
+ * @param source - источник изображения
+ * @param desiredWidth - желаемая ширина
+ */
 export const scaleHeight: ({
   source,
   desiredWidth,

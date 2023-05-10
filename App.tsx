@@ -1,6 +1,5 @@
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -8,19 +7,30 @@ import Home from './src/Pages/Home';
 import OnboardingScreen from './src/Pages/OnboardingScreen';
 
 // @ts-ignore
-import {ONBOARDING_KEY, ONBOARDING_SHOW_DEV, APP_ENV} from '@env';
+import {APP_ENV, ONBOARDING_KEY, ONBOARDING_SHOW_DEV} from '@env';
 import {CreateAndEdit} from './src/Pages/Record/CreateAndEdit';
 import {Colors, Style} from './src/Styles/Style';
 import {ShowRecord} from './src/Pages/Record/ShowRecord';
-import {TransparentButton} from './src/Components/Custom/TransparentButton';
+import {TransparentButton} from './src/Components/Buttons/TransparentButton';
 import {AllEmotions} from './src/Pages/AllEmotions';
+import {getSettingsValueById} from './src/Actions/Settings';
+import {FACE_ID_KEY} from './src/Components/Settings/FaceID';
+import {Auth} from './src/Pages/Auth';
+import {AppState, LogBox} from 'react-native';
 
 interface MyComponentState {
   showOnboarding: boolean;
   onboardingLoaded: boolean;
+  isAuthenticated: boolean;
+  isAuthRequired: boolean;
+  appState: any;
 }
 
 interface Props {}
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 class App extends React.Component<Props, MyComponentState> {
   constructor(props: Props) {
@@ -29,6 +39,9 @@ class App extends React.Component<Props, MyComponentState> {
     this.state = {
       showOnboarding: false,
       onboardingLoaded: false,
+      isAuthenticated: false,
+      isAuthRequired: false,
+      appState: AppState.currentState,
     };
   }
 
@@ -43,9 +56,19 @@ class App extends React.Component<Props, MyComponentState> {
       this.setState({showOnboarding: true});
     }
 
+    await this.checkIfAuthIsRequired();
     this.setState({
       onboardingLoaded: true,
     });
+  }
+
+  private async checkIfAuthIsRequired() {
+    const isAuthRequired = await getSettingsValueById(FACE_ID_KEY);
+    if (isAuthRequired?.value === '1') {
+      this.setState({
+        isAuthRequired: true,
+      });
+    }
   }
 
   render() {
@@ -75,9 +98,26 @@ class App extends React.Component<Props, MyComponentState> {
       },
     };
 
+    if (!this.state.onboardingLoaded) {
+      return null;
+    }
+
+    const isAuthRequired =
+      this.state.isAuthRequired && !this.state.isAuthenticated;
     return (
-      this.state.onboardingLoaded && (
-        <NavigationContainer theme={MyTheme}>
+      <NavigationContainer theme={MyTheme}>
+        {isAuthRequired ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Auth"
+              component={Auth}
+              initialParams={{
+                onSuccessfulAuth: () => this.authSuccess(),
+              }}
+              options={{headerShown: false, animation: 'none'}}
+            />
+          </Stack.Navigator>
+        ) : (
           <Stack.Navigator>
             {this.state.showOnboarding && (
               <Stack.Screen
@@ -126,24 +166,28 @@ class App extends React.Component<Props, MyComponentState> {
                     }}
                     source={require('./assets/images/icon-more-dark.png')}
                     onClick={() => {
-                      ShowRecord.onClick(route.params.recordID, navigation);
+                      ShowRecord.onClick(route.params?.recordID, navigation);
                     }}
                   />
                 ),
               })}
             />
           </Stack.Navigator>
-        </NavigationContainer>
-      )
+        )}
+      </NavigationContainer>
     );
   }
 
-  static getTitle(route: any): string {
+  private static getTitle(route: any): string {
     if (!route.params || !route.params?.recordID) {
       return 'Создать запись';
     }
 
     return 'Редактировать запись';
+  }
+
+  private authSuccess() {
+    this.setState({isAuthenticated: true});
   }
 }
 

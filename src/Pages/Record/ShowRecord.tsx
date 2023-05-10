@@ -3,7 +3,7 @@ import {Record} from '../../Types/Record';
 import {deleteRecord, getAllRecords, getRecord} from '../../Actions/Record';
 import {RecordNotFound} from '../../Components/Record/RecordNotFound';
 import {ActionSheetIOS, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Colors, Style} from '../../Styles/Style';
+import {Colors, Style, StyleConstant} from '../../Styles/Style';
 import {formatDate} from '../../Functions/formatDate';
 
 import {EmotionImage} from '../../Components/Custom/EmotionImage';
@@ -85,9 +85,38 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
       return <RecordNotFound />;
     }
 
-    const styles = StyleSheet.create({
+    const styles = this.getStyles();
+
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.wrapper}>
+          <Text style={styles.created_at}>
+            {formatDate(this.state.record.created_at)}
+          </Text>
+
+          {this.state.record.emotions.length > 0 && (
+            <View style={styles.emotions}>
+              {this.state.record.emotions.map(emotion => (
+                <EmotionImage key={emotion} name={emotion} />
+              ))}
+            </View>
+          )}
+
+          <Text style={styles.title}>{this.state.record.title}</Text>
+          <Text style={styles.desc}>{this.state.record.description}</Text>
+        </View>
+      </ScrollView>
+    );
+  }
+
+  private getStyles() {
+    return StyleSheet.create({
       container: {
         ...Style.container,
+      },
+
+      wrapper: {
+        paddingBottom: StyleConstant.paddingVertical * 2,
       },
 
       title: {
@@ -111,9 +140,10 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
 
       emotions: {
         flexDirection: 'row',
-        gap: 4,
         alignItems: 'center',
+        flexWrap: 'wrap',
         marginBottom: 16,
+        gap: 4,
       },
 
       created_at: {
@@ -126,24 +156,5 @@ export class ShowRecord extends React.Component<Props, MyComponentState> {
         marginBottom: 16,
       },
     });
-
-    return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.created_at}>
-          {formatDate(this.state.record.created_at)}
-        </Text>
-
-        {this.state.record.emotions.length > 0 && (
-          <View style={styles.emotions}>
-            {this.state.record.emotions.map(emotion => (
-              <EmotionImage key={emotion} name={emotion} />
-            ))}
-          </View>
-        )}
-
-        <Text style={styles.title}>{this.state.record.title}</Text>
-        <Text style={styles.desc}>{this.state.record.description}</Text>
-      </ScrollView>
-    );
   }
 }

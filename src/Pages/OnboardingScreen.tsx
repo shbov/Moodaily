@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import {Colors, Style, StyleConstant} from '../Styles/Style';
 
-import PrimaryButton from '../Components/Custom/PrimaryButton';
+import PrimaryButton from '../Components/Buttons/PrimaryButton';
 import CarouselCards from '../Components/Carousel/CarouselCards';
 
 import {Item} from '../Types/Item';

@@ -4,7 +4,8 @@ import React from 'react';
 import {Colors, Style, StyleConstant} from '../Styles/Style';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {ShowAllRecords} from './Record/ShowAllRecords';
-import {ShowStats} from './ShowStats';
+import {Statistics} from './Home/Statistics';
+import {Settings} from './Home/Settings';
 
 const styles = StyleSheet.create({
   container: {
@@ -80,10 +81,17 @@ const Home = () => {
           }}
         />
         <Tab.Screen
-          name="ShowStats"
-          component={ShowStats}
+          name="Statistics"
+          component={Statistics}
           options={{
             title: 'Статистика',
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            title: 'Настройки',
           }}
         />
       </Tab.Navigator>
