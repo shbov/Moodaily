@@ -16,6 +16,15 @@
 		7699B88040F8A987B510C191 /* libPods-Moodaily-MoodailyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moodaily-MoodailyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8BC36C786D3CE28FFA5DB9E4 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D93BA59202E82C6FDA2897 /* ExpoModulesProvider.swift */; };
+		A09995292A0D1552005188A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09995282A0D1552005188A6 /* WidgetKit.framework */; };
+		A099952B2A0D1552005188A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A099952A2A0D1552005188A6 /* SwiftUI.framework */; };
+		A099952E2A0D1552005188A6 /* RecordsHomeWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099952D2A0D1552005188A6 /* RecordsHomeWidgetBundle.swift */; };
+		A09995302A0D1552005188A6 /* RecordsHomeWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099952F2A0D1552005188A6 /* RecordsHomeWidgetLiveActivity.swift */; };
+		A09995322A0D1552005188A6 /* RecordsHomeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09995312A0D1552005188A6 /* RecordsHomeWidget.swift */; };
+		A09995352A0D1554005188A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09995342A0D1554005188A6 /* Assets.xcassets */; };
+		A09995372A0D1554005188A6 /* RecordsHomeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A09995332A0D1552005188A6 /* RecordsHomeWidget.intentdefinition */; };
+		A09995382A0D1554005188A6 /* RecordsHomeWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A09995332A0D1552005188A6 /* RecordsHomeWidget.intentdefinition */; };
+		A099953B2A0D1554005188A6 /* RecordsHomeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A09995272A0D1552005188A6 /* RecordsHomeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +35,28 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Moodaily;
 		};
+		A09995392A0D1554005188A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A09995262A0D1552005188A6;
+			remoteInfo = RecordsHomeWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A09995402A0D1554005188A6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A099953B2A0D1554005188A6 /* RecordsHomeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* MoodailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +77,16 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Moodaily/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Moodaily-MoodailyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moodaily-MoodailyTests.release.xcconfig"; path = "Target Support Files/Pods-Moodaily-MoodailyTests/Pods-Moodaily-MoodailyTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0362DE42A080DB300AB5810 /* Moodaily.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Moodaily.entitlements; path = Moodaily/Moodaily.entitlements; sourceTree = "<group>"; };
+		A09995272A0D1552005188A6 /* RecordsHomeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RecordsHomeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09995282A0D1552005188A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A099952A2A0D1552005188A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A099952D2A0D1552005188A6 /* RecordsHomeWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsHomeWidgetBundle.swift; sourceTree = "<group>"; };
+		A099952F2A0D1552005188A6 /* RecordsHomeWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsHomeWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		A09995312A0D1552005188A6 /* RecordsHomeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsHomeWidget.swift; sourceTree = "<group>"; };
+		A09995332A0D1552005188A6 /* RecordsHomeWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = RecordsHomeWidget.intentdefinition; sourceTree = "<group>"; };
+		A09995342A0D1554005188A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A09995362A0D1554005188A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A099953C2A0D1554005188A6 /* RecordsHomeWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecordsHomeWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A71117A305EF73C88F9DBDC7 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Moodaily/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -65,6 +105,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-Moodaily.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09995242A0D1552005188A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A099952B2A0D1552005188A6 /* SwiftUI.framework in Frameworks */,
+				A09995292A0D1552005188A6 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +157,8 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-Moodaily.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moodaily-MoodailyTests.a */,
+				A09995282A0D1552005188A6 /* WidgetKit.framework */,
+				A099952A2A0D1552005188A6 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,9 +189,11 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A099953C2A0D1554005188A6 /* RecordsHomeWidgetExtension.entitlements */,
 				13B07FAE1A68108700A75B9A /* Moodaily */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MoodailyTests */,
+				A099952C2A0D1552005188A6 /* RecordsHomeWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -157,6 +210,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Moodaily.app */,
 				00E356EE1AD99517003FC87E /* MoodailyTests.xctest */,
+				A09995272A0D1552005188A6 /* RecordsHomeWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +229,19 @@
 				A71117A305EF73C88F9DBDC7 /* ExpoModulesProvider.swift */,
 			);
 			name = Moodaily;
+			sourceTree = "<group>";
+		};
+		A099952C2A0D1552005188A6 /* RecordsHomeWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A099952D2A0D1552005188A6 /* RecordsHomeWidgetBundle.swift */,
+				A099952F2A0D1552005188A6 /* RecordsHomeWidgetLiveActivity.swift */,
+				A09995312A0D1552005188A6 /* RecordsHomeWidget.swift */,
+				A09995332A0D1552005188A6 /* RecordsHomeWidget.intentdefinition */,
+				A09995342A0D1554005188A6 /* Assets.xcassets */,
+				A09995362A0D1554005188A6 /* Info.plist */,
+			);
+			path = RecordsHomeWidget;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -224,15 +291,34 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				A09995402A0D1554005188A6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A099953A2A0D1554005188A6 /* PBXTargetDependency */,
 			);
 			name = Moodaily;
 			productName = Moodaily;
 			productReference = 13B07F961A680F5B00A75B9A /* Moodaily.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A09995262A0D1552005188A6 /* RecordsHomeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A099953D2A0D1554005188A6 /* Build configuration list for PBXNativeTarget "RecordsHomeWidgetExtension" */;
+			buildPhases = (
+				A09995232A0D1552005188A6 /* Sources */,
+				A09995242A0D1552005188A6 /* Frameworks */,
+				A09995252A0D1552005188A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordsHomeWidgetExtension;
+			productName = RecordsHomeWidgetExtension;
+			productReference = A09995272A0D1552005188A6 /* RecordsHomeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -240,6 +326,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -248,6 +335,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					A09995262A0D1552005188A6 = {
+						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -266,6 +356,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Moodaily */,
 				00E356ED1AD99517003FC87E /* MoodailyTests */,
+				A09995262A0D1552005188A6 /* RecordsHomeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +375,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09995252A0D1552005188A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09995352A0D1554005188A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +554,19 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				A09995382A0D1554005188A6 /* RecordsHomeWidget.intentdefinition in Sources */,
 				2CBCC8BE7716A0738AC4FE3A /* ExpoModulesProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09995232A0D1552005188A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09995302A0D1552005188A6 /* RecordsHomeWidgetLiveActivity.swift in Sources */,
+				A09995322A0D1552005188A6 /* RecordsHomeWidget.swift in Sources */,
+				A09995372A0D1554005188A6 /* RecordsHomeWidget.intentdefinition in Sources */,
+				A099952E2A0D1552005188A6 /* RecordsHomeWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +577,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Moodaily */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		A099953A2A0D1554005188A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A09995262A0D1552005188A6 /* RecordsHomeWidgetExtension */;
+			targetProxy = A09995392A0D1554005188A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -539,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Moodaily.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -564,7 +681,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.shbov.ru.moodaily;
 				PRODUCT_NAME = Moodaily;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -577,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Moodaily.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -601,7 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.shbov.ru.moodaily;
 				PRODUCT_NAME = Moodaily;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
@@ -658,7 +776,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -723,7 +841,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -743,6 +861,92 @@
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A099953E2A0D1554005188A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = RecordsHomeWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MA9ZVR88CQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordsHomeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordsHomeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = org.shbov.ru.moodaily.RecordsHomeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A099953F2A0D1554005188A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = RecordsHomeWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MA9ZVR88CQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordsHomeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RecordsHomeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = org.shbov.ru.moodaily.RecordsHomeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -772,6 +976,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A099953D2A0D1554005188A6 /* Build configuration list for PBXNativeTarget "RecordsHomeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A099953E2A0D1554005188A6 /* Debug */,
+				A099953F2A0D1554005188A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

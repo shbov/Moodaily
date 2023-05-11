@@ -42,7 +42,6 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
       const records = await getAllRecords();
       this.setState({records: records, loading: false});
     }
-
     this.focusSubscription = this.props.navigation.addListener('focus', () => {
       getAllRecords().then(records => this.setState({records: records}));
     });

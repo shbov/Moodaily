@@ -3,6 +3,9 @@ import {Record} from '../Types/Record';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {parseISO} from 'date-fns';
 import format from 'date-fns/format';
+import {BACKUP_FILE_NAME, ExportData} from '../Components/Settings/ExportData';
+import {DocumentDirectoryPath, readFile} from 'react-native-fs';
+import {FILE_NAME} from '../Components/Settings/ImportData';
 
 export const RECORDS_KEY = 'records';
 
@@ -35,6 +38,10 @@ async function getRecordsArray(): Promise<Record[]> {
   const storedRecords = await AsyncStorage.getItem(RECORDS_KEY);
   const records = storedRecords ? JSON.parse(storedRecords) : {};
   return Object.values(records);
+}
+
+export async function getRareRecords() {
+  return await AsyncStorage.getItem(RECORDS_KEY);
 }
 
 /**
@@ -154,4 +161,15 @@ export const getRecordsForStats = async (
 
   // сортируем по убыванию
   return _.orderBy(list, ['year', 'month']).reverse();
+};
+
+export const importAllRecordsFromJson = async (json: string) => {
+  await ExportData.onClick(false, BACKUP_FILE_NAME);
+
+  try {
+    await deleteAllRecords();
+    await AsyncStorage.setItem(RECORDS_KEY, json);
+  } catch (error) {
+    console.error(error);
+  }
 };

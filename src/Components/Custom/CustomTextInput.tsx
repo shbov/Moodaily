@@ -9,6 +9,7 @@ type Props = {
   onChangeText: (text: string) => void;
   error: string | undefined;
   type: string;
+  onFinish?: () => void;
 };
 
 export const ErrorStyles = StyleSheet.create({
@@ -25,6 +26,11 @@ export const ErrorStyles = StyleSheet.create({
 
 export const CustomTextInput = (props: Props) => {
   const handleSubmitEditing = () => {
+    if (props.onFinish) {
+      props.onFinish();
+      return;
+    }
+
     Keyboard.dismiss();
   };
 
@@ -42,6 +48,7 @@ export const CustomTextInput = (props: Props) => {
         blurOnSubmit={true}
         onSubmitEditing={handleSubmitEditing}
         autoFocus={autoFocus}
+        {...(props.onFinish && {returnKeyType: 'done'})}
       />
 
       {props.error && <Text style={ErrorStyles.error}>{props.error}</Text>}

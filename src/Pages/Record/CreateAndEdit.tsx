@@ -207,6 +207,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
                 onChangeText={this.updateDesc}
                 error={this.state.errors.description}
                 type="description"
+                onFinish={() => this.saveRecord()}
               />
             </View>
           </View>

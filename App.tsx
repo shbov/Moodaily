@@ -17,6 +17,10 @@ import {getSettingsValueById} from './src/Actions/Settings';
 import {FACE_ID_KEY} from './src/Components/Settings/FaceID';
 import {Auth} from './src/Pages/Auth';
 import {AppState, LogBox} from 'react-native';
+import SharedGroupPreferences from 'react-native-shared-group-preferences';
+import {getAllRecords} from './src/Actions/Record';
+
+const appGroupIdentifier = 'group.shbov.ru.moodaily';
 
 interface MyComponentState {
   showOnboarding: boolean;
@@ -45,6 +49,18 @@ class App extends React.Component<Props, MyComponentState> {
     };
   }
 
+  handleSubmit = async () => {
+    try {
+      await SharedGroupPreferences.setItem(
+        'records',
+        await getAllRecords(),
+        appGroupIdentifier,
+      );
+    } catch (error) {
+      console.log({error});
+    }
+  };
+
   async componentDidMount() {
     if (APP_ENV === 'dev' && ONBOARDING_SHOW_DEV === 'true') {
       await AsyncStorage.removeItem(ONBOARDING_KEY);
@@ -60,6 +76,8 @@ class App extends React.Component<Props, MyComponentState> {
     this.setState({
       onboardingLoaded: true,
     });
+
+    await this.handleSubmit();
   }
 
   private async checkIfAuthIsRequired() {
