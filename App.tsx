@@ -16,18 +16,15 @@ import {AllEmotions} from './src/Pages/AllEmotions';
 import {getSettingsValueById} from './src/Actions/Settings';
 import {FACE_ID_KEY} from './src/Components/Settings/FaceID';
 import {Auth} from './src/Pages/Auth';
-import {AppState, LogBox} from 'react-native';
-import SharedGroupPreferences from 'react-native-shared-group-preferences';
-import {getAllRecords} from './src/Actions/Record';
-
-const appGroupIdentifier = 'group.shbov.ru.moodaily';
+import {LogBox} from 'react-native';
+import {getDataForWidget} from './src/Functions/getDataForWidget';
+import {onDisplayNotification} from './src/Functions/onDisplayNotification';
 
 interface MyComponentState {
   showOnboarding: boolean;
   onboardingLoaded: boolean;
   isAuthenticated: boolean;
   isAuthRequired: boolean;
-  appState: any;
 }
 
 interface Props {}
@@ -35,6 +32,8 @@ interface Props {}
 LogBox.ignoreLogs([
   'Non-serializable values were found in the navigation state',
 ]);
+
+export const HOUR = 20;
 
 class App extends React.Component<Props, MyComponentState> {
   constructor(props: Props) {
@@ -45,21 +44,8 @@ class App extends React.Component<Props, MyComponentState> {
       onboardingLoaded: false,
       isAuthenticated: false,
       isAuthRequired: false,
-      appState: AppState.currentState,
     };
   }
-
-  handleSubmit = async () => {
-    try {
-      await SharedGroupPreferences.setItem(
-        'records',
-        await getAllRecords(),
-        appGroupIdentifier,
-      );
-    } catch (error) {
-      console.log({error});
-    }
-  };
 
   async componentDidMount() {
     if (APP_ENV === 'dev' && ONBOARDING_SHOW_DEV === 'true') {
@@ -77,7 +63,8 @@ class App extends React.Component<Props, MyComponentState> {
       onboardingLoaded: true,
     });
 
-    await this.handleSubmit();
+    await getDataForWidget();
+    await onDisplayNotification();
   }
 
   private async checkIfAuthIsRequired() {

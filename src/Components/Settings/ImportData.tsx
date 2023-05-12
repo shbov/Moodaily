@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  BackHandler,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {importAllRecordsFromJson} from '../../Actions/Record';
 import {Colors, Style, StyleConstant} from '../../Styles/Style';
 import {DocumentDirectoryPath, readFile} from 'react-native-fs';
@@ -70,6 +63,8 @@ export class ImportData extends React.Component<Props, State> {
 
   async onClick() {
     const path = `${DocumentDirectoryPath}/${FILE_NAME}`;
+    console.log(path);
+
     try {
       const content = await readFile(path, 'utf8');
       await importAllRecordsFromJson(content);

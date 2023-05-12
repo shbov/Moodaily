@@ -8,6 +8,7 @@ import {Setting} from '../../Types/Setting';
 import {FaceID} from '../../Components/Settings/FaceID';
 import {ExportData} from '../../Components/Settings/ExportData';
 import {ImportData} from '../../Components/Settings/ImportData';
+import {Notify} from '../../Components/Settings/Notifications';
 
 type Props = NativeStackScreenProps<any> & {};
 
@@ -43,15 +44,13 @@ export class Settings extends React.Component<Props, State> {
         ],
       },
       {
+        title: 'Кастомизация',
+        data: [<Notify />],
+      },
+      {
         title: 'Безопасность',
         data: [<FaceID />],
       },
-      // {
-      //   title: 'Кастомизация',
-      //   data: [
-      //     // {title: 'Ежедневные напоминания', component: undefined}
-      //   ],
-      // },
     ];
 
     return (

@@ -17,7 +17,7 @@ type YearItem = {
 
 type Props = {
   visible: boolean;
-  onExit: (year: number) => void;
+  onExit: (year?: number) => void;
   years: YearItem[];
 };
 
@@ -30,7 +30,7 @@ export class StatisticsModal extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      year: this.getMaxYear(),
+      year: StatisticsModal.getMaxYear(props.years),
     };
   }
 
@@ -71,6 +71,10 @@ export class StatisticsModal extends React.Component<Props, State> {
         </View>
       </Modal>
     );
+  }
+
+  public static getMaxYear(years: any[]) {
+    return Math.max(...years.map(item => Number(item.label)));
   }
 
   private getStyles() {
@@ -114,17 +118,13 @@ export class StatisticsModal extends React.Component<Props, State> {
     });
   }
 
-  private getMaxYear() {
-    return this.props.years.reduce((max: number, year: YearItem) => {
-      if (Number(year.label) > max) {
-        return Number(year.label);
-      }
-
-      return max;
-    }, new Date().getFullYear());
-  }
-
   private save() {
-    this.props.onExit(this.state.year);
+    if (
+      this.props.years.map(item => Number(item.label)).includes(this.state.year)
+    ) {
+      this.props.onExit(this.state.year);
+    } else {
+      this.props.onExit();
+    }
   }
 }

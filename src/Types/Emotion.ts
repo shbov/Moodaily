@@ -3,9 +3,9 @@ import {ImageSourcePropType} from 'react-native';
 /**
  * Доступные эмоции
  */
-export const Emotion = {
+export const Emotion: EmotionInterface = {
   // Интерес
-  exited: {
+  excited: {
     name: 'Взволнованность',
     source: require('@assets/emotions/excited.png'),
   },
@@ -57,7 +57,7 @@ export const Emotion = {
     name: 'Грусть',
     source: require('@assets/emotions/sad.png'),
   },
-  grieving: {
+  grief: {
     name: 'Горе',
     source: require('@assets/emotions/grief.png'),
   },
@@ -85,11 +85,11 @@ export const Emotion = {
     name: 'Ревность',
     source: require('@assets/emotions/jealous.png'),
   },
-  irritated: {
+  irritability: {
     name: 'Раздражение',
     source: require('@assets/emotions/irritability.png'),
   },
-  angry: {
+  anger: {
     name: 'Злость',
     source: require('@assets/emotions/anger.png'),
   },
@@ -102,3 +102,7 @@ export type EmotionType = {
   name: string;
   source: ImageSourcePropType;
 };
+
+interface EmotionInterface {
+  [key: string]: EmotionType;
+}

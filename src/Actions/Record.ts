@@ -4,8 +4,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {parseISO} from 'date-fns';
 import format from 'date-fns/format';
 import {BACKUP_FILE_NAME, ExportData} from '../Components/Settings/ExportData';
-import {DocumentDirectoryPath, readFile} from 'react-native-fs';
-import {FILE_NAME} from '../Components/Settings/ImportData';
+import {getMonthByDate} from '../Functions/getMonthByDate';
+import {getDataForWidget} from '../Functions/getDataForWidget';
 
 export const RECORDS_KEY = 'records';
 
@@ -26,6 +26,7 @@ export const addRecord = async (record: Record) => {
     record.updated_at = new Date().toISOString();
     records[record.id] = record;
     await AsyncStorage.setItem(RECORDS_KEY, JSON.stringify(records));
+    await getDataForWidget();
   } catch (error) {
     console.error(error);
   }
@@ -79,7 +80,9 @@ export const getAllRecords = async (): Promise<Record[]> => {
   console.log('loading data...');
 
   try {
-    return await getRecordsArray();
+    const records = await getRecordsArray();
+    await getDataForWidget(records);
+    return records;
   } catch (error) {
     console.error(error);
     return [];
@@ -172,4 +175,32 @@ export const importAllRecordsFromJson = async (json: string) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const getRecordsForWidgetStats = async (
+  allRecords: Record[],
+): Promise<{month: string; year: number; emotions: any}> => {
+  const currentDate = new Date();
+  const records = await getRecordsForStats(
+    currentDate.getFullYear(),
+    allRecords,
+  );
+
+  const month = records.find(item => {
+    return (
+      item.year === currentDate.getFullYear() &&
+      item.month === currentDate.getMonth()
+    );
+  });
+
+  if (!month) {
+    return {
+      month: getMonthByDate(currentDate.getMonth()),
+      year: currentDate.getFullYear(),
+      emotions: [],
+    };
+  }
+
+  month.month = getMonthByDate(currentDate.getMonth());
+  return month;
 };

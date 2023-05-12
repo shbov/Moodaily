@@ -1,12 +1,7 @@
 import React from 'react';
-import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Record} from '../../Types/Record';
-import {
-  getAllRecords,
-  getRareRecords,
-  getRecordsObject,
-} from '../../Actions/Record';
-import {Colors, Style, StyleConstant} from '../../Styles/Style';
+import {Alert, Text, TouchableOpacity, View} from 'react-native';
+import {getRareRecords} from '../../Actions/Record';
+import {StyleConstant} from '../../Styles/Style';
 import {DocumentDirectoryPath, writeFile} from 'react-native-fs';
 import {FILE_NAME, ImportData} from './ImportData';
 
@@ -43,6 +38,7 @@ export class ExportData extends React.Component<Props, State> {
   public static async onClick(withAlert = true, filename = FILE_NAME) {
     const string = await getRareRecords();
     const path = `${DocumentDirectoryPath}/${filename}`;
+    console.log(path);
 
     try {
       if (string === null) {

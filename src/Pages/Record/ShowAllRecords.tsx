@@ -42,9 +42,12 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
       const records = await getAllRecords();
       this.setState({records: records, loading: false});
     }
-    this.focusSubscription = this.props.navigation.addListener('focus', () => {
-      getAllRecords().then(records => this.setState({records: records}));
-    });
+    this.focusSubscription = this.props.navigation.addListener(
+      'focus',
+      async () => {
+        getAllRecords().then(records => this.setState({records: records}));
+      },
+    );
   }
 
   componentWillUnmount() {
@@ -75,11 +78,12 @@ export class ShowAllRecords extends Component<Props, MyComponentState> {
       );
     };
 
+    const sortedRecords = this.state.records.sort(dateCompare);
     return (
       <View style={styles.home}>
         {!this.state.loading && (
           <FlatList
-            data={this.state.records.sort(dateCompare)}
+            data={sortedRecords}
             contentContainerStyle={styles.recordsList}
             ListEmptyComponent={
               <Empty

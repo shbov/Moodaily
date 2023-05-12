@@ -102,6 +102,7 @@ export class Statistics extends React.Component<Props, MyComponentState> {
 
         <FlatList
           data={this.state.records}
+          style={styles.list}
           renderItem={item => <MonthItem item={item} />}
           ListEmptyComponent={
             <Empty
@@ -121,7 +122,13 @@ export class Statistics extends React.Component<Props, MyComponentState> {
 
         <StatisticsModal
           visible={this.state.openDateModal}
-          onExit={year => this.saveYear(year)}
+          onExit={year => {
+            if (year) {
+              this.saveYear(year);
+            } else {
+              this.setState({openDateModal: false});
+            }
+          }}
           years={this.state.years}
         />
       </View>
@@ -150,8 +157,15 @@ export class Statistics extends React.Component<Props, MyComponentState> {
       });
     }
 
+    const allYears = _.sortBy(years, 'label').reverse();
+    if (!allYears.find(item => item.label === this.state.year.toString())) {
+      this.setState({
+        year: StatisticsModal.getMaxYear(allYears),
+      });
+    }
+
     this.setState({
-      years: _.sortBy(years, 'label').reverse(),
+      years: allYears,
     });
   }
 
@@ -181,6 +195,11 @@ export class Statistics extends React.Component<Props, MyComponentState> {
         fontWeight: '500',
         fontSize: 14,
         lineHeight: 20,
+      },
+
+      list: {
+        marginHorizontal: -1 * Style.container.paddingHorizontal,
+        paddingHorizontal: Style.container.paddingHorizontal,
       },
     });
   }

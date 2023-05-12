@@ -346,7 +346,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
   /**
    * Сохраняет запись, если поля заполнены
    */
-  saveRecord() {
+  async saveRecord() {
     if (!this.checkIfRecordFieldsAreEmpty()) {
       return;
     }

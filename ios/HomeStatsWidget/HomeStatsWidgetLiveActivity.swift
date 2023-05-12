@@ -1,15 +1,15 @@
 //
-//  RecordsHomeWidgetLiveActivity.swift
-//  RecordsHomeWidget
+//  HomeStatsWidgetLiveActivity.swift
+//  HomeStatsWidget
 //
-//  Created by Андрей Шубников on 11.05.2023.
+//  Created by Андрей Шубников on 12.05.2023.
 //
 
 import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct RecordsHomeWidgetAttributes: ActivityAttributes {
+struct HomeStatsWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var value: Int
@@ -19,9 +19,9 @@ struct RecordsHomeWidgetAttributes: ActivityAttributes {
     var name: String
 }
 
-struct RecordsHomeWidgetLiveActivity: Widget {
+struct HomeStatsWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: RecordsHomeWidgetAttributes.self) { context in
+        ActivityConfiguration(for: HomeStatsWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello")
@@ -56,9 +56,9 @@ struct RecordsHomeWidgetLiveActivity: Widget {
     }
 }
 
-struct RecordsHomeWidgetLiveActivity_Previews: PreviewProvider {
-    static let attributes = RecordsHomeWidgetAttributes(name: "Me")
-    static let contentState = RecordsHomeWidgetAttributes.ContentState(value: 3)
+struct HomeStatsWidgetLiveActivity_Previews: PreviewProvider {
+    static let attributes = HomeStatsWidgetAttributes(name: "Me")
+    static let contentState = HomeStatsWidgetAttributes.ContentState(value: 3)
 
     static var previews: some View {
         attributes

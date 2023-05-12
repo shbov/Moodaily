@@ -1,4 +1,89 @@
 {
   "migIndex": 1,
-  "data": []
+  "data": [
+    {
+      "path": "assets/emotions/anger.png",
+      "sha1": "6cd5c5dacdde58f157087e6e9e6880ffa7ff3c0c"
+    },
+    {
+      "path": "assets/emotions/anxiety.png",
+      "sha1": "b0e86a230cdce14d33f7acabca0b8f73ca64df56"
+    },
+    {
+      "path": "assets/emotions/anxious.png",
+      "sha1": "b3fb15dd36076d6730ebb94149562ebb912f971b"
+    },
+    {
+      "path": "assets/emotions/apathetic.png",
+      "sha1": "1556320960faa1fa19c069a177cad9bc450c4723"
+    },
+    {
+      "path": "assets/emotions/boring.png",
+      "sha1": "1db9680dbf55110ca632f5d4aa718b753a74d80e"
+    },
+    {
+      "path": "assets/emotions/empty.png",
+      "sha1": "6d4ff7a3fc1c0eb5207f46316622c74942fa7b2f"
+    },
+    {
+      "path": "assets/emotions/excited.png",
+      "sha1": "bd304be37eea32eadca143b7e6e6fa57ae3553df"
+    },
+    {
+      "path": "assets/emotions/grief.png",
+      "sha1": "1ee7dff62808fdeb2bf4d0f2e98e29e0400b23f4"
+    },
+    {
+      "path": "assets/emotions/happy.png",
+      "sha1": "051dc01cb4fb2c2940a650fe0349181b6f405872"
+    },
+    {
+      "path": "assets/emotions/inspired.png",
+      "sha1": "12a63d933f2d0a4ea314642ed8da6959bf7ba5b9"
+    },
+    {
+      "path": "assets/emotions/irritability.png",
+      "sha1": "4d6f9756557a87e8706ba703949b9899bbe27ffc"
+    },
+    {
+      "path": "assets/emotions/jealous.png",
+      "sha1": "3c40c19e71de68d34d8720da51bfe67c3d5c99b3"
+    },
+    {
+      "path": "assets/emotions/joyful.png",
+      "sha1": "87cd15f320ce891e207c672e7496167713fbaf51"
+    },
+    {
+      "path": "assets/emotions/offense.png",
+      "sha1": "f7f31ac43cd380d4baba96174e882d2fff8959b0"
+    },
+    {
+      "path": "assets/emotions/peace.png",
+      "sha1": "38a495b79ce8e4fe90d5d23cc480555a91e57daf"
+    },
+    {
+      "path": "assets/emotions/sad.png",
+      "sha1": "fdca345e385544623386a37f7266a432bad28363"
+    },
+    {
+      "path": "assets/emotions/safety.png",
+      "sha1": "351a4de05877cc2c01e40d8e85f071b1417ef886"
+    },
+    {
+      "path": "assets/emotions/shame.png",
+      "sha1": "75bf1415f244fe24af96f0542b5c0f76dfe8f1f1"
+    },
+    {
+      "path": "assets/emotions/surprized.png",
+      "sha1": "c39f7129d387e3c7e52b12f56c77fd2e75e2c64f"
+    },
+    {
+      "path": "assets/emotions/tearfulness.png",
+      "sha1": "5fe11d95e64cc1bf3d237be1cf49a1ef91fc5898"
+    },
+    {
+      "path": "assets/emotions/tired.png",
+      "sha1": "5e9399b59ab3a9cb25ff19d1ae1666268e7fff2c"
+    }
+  ]
 }
