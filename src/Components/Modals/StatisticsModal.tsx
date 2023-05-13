@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import React from 'react';
-import {Colors, Style} from '../../Styles/Style';
+import {Colors, Style, StyleConstant} from '../../Styles/Style';
 
 type YearItem = {
   label: string;
@@ -64,9 +64,16 @@ export class StatisticsModal extends React.Component<Props, State> {
               })}
             </Picker>
 
-            <TouchableOpacity onPress={() => this.save()}>
-              <Text style={styles.ready}>Готово</Text>
-            </TouchableOpacity>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+              }}>
+              <TouchableOpacity onPress={() => this.save()} style={styles.btn}>
+                <Text style={styles.ready}>Готово</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -114,6 +121,13 @@ export class StatisticsModal extends React.Component<Props, State> {
 
         color: Colors.primary,
         alignSelf: 'flex-end',
+      },
+
+      btn: {
+        paddingHorizontal: Style.container.paddingHorizontal / 2,
+        marginHorizontal: -Style.container.paddingHorizontal / 2,
+        paddingVertical: 8,
+        marginVertical: -8,
       },
     });
   }

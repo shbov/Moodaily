@@ -108,18 +108,34 @@ struct HomeStatsWidgetEntryView : View {
         Spacer()
         GeometryReader { geo in
           HStack(spacing: 0) {
-            ForEach(entry.data.record.emotions , id: \.self) {
-              emotion in VStack(alignment: .center, spacing: 0) {
-                if let imagePath = getImagePath(emotion: emotion, allEmotions: entry.data.emotions),
-                   let uiImage = UIImage(contentsOfFile: imagePath) {
-                  Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geo.size.width/5,height: geo.size.width/5)
-                }
-              
-                Text("\(emotion.percentage)%").font(.system(size:12)).foregroundColor(Color(red: 0.06, green: 0.09, blue: 0.16))
-              }.frame(width: geo.size.width/5)
+            if entry.data.record.emotions.isEmpty {
+              ForEach(0..<5) { index in
+                VStack(alignment: .center, spacing: 0) {
+                  if let imagePath = getEmptyImagePath(allEmotions: entry.data.emotions),
+                     let uiImage = UIImage(contentsOfFile: imagePath) {
+                    Image(uiImage: uiImage)
+                      .resizable()
+                      .aspectRatio(contentMode: .fit)
+                      .frame(width: geo.size.width/5,height: geo.size.width/5)
+                  }
+                
+                  Text("20%").font(.system(size:12)).foregroundColor(Color(red: 0.06, green: 0.09, blue: 0.16))
+                }.frame(width: geo.size.width/5)
+              }
+            } else {
+              ForEach(entry.data.record.emotions , id: \.self) {
+                emotion in VStack(alignment: .center, spacing: 0) {
+                  if let imagePath = getImagePath(emotion: emotion, allEmotions: entry.data.emotions),
+                     let uiImage = UIImage(contentsOfFile: imagePath) {
+                    Image(uiImage: uiImage)
+                      .resizable()
+                      .aspectRatio(contentMode: .fit)
+                      .frame(width: geo.size.width/5,height: geo.size.width/5)
+                  }
+                
+                  Text("\(emotion.percentage)%").font(.system(size:12)).foregroundColor(Color(red: 0.06, green: 0.09, blue: 0.16))
+                }.frame(width: geo.size.width/5)
+              }
             }
           }
         }
@@ -140,7 +156,12 @@ func getImagePath(emotion: Emotion, allEmotions: [EmotionPath])->String? {
   } else {
     return Bundle.main.path(forResource: "empty", ofType:"png", inDirectory: "assets/emotions")
   }
+}
+
+func getEmptyImagePath(allEmotions: [EmotionPath])->String? {
+  var imageName: String = "empty"
   
+  return Bundle.main.path(forResource: imageName, ofType:"png", inDirectory: "assets/emotions")!
 }
 
 struct HomeStatsWidget: Widget {
