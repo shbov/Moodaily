@@ -71,7 +71,11 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
       const record = await getRecord(recordID);
 
       if (record) {
-        this.setState({record: record, isEdited: false});
+        this.setState({
+          record: record,
+          isEdited: false,
+          selectedDate: new Date(record.created_at),
+        });
       }
     }
 
@@ -223,6 +227,7 @@ export class CreateAndEdit extends Component<Props, MyComponentState> {
           minimumDate={new Date(2003, 8, 2)}
           onConfirm={date => {
             this.setState({
+              selectedDate: date,
               openDateModal: false,
               record: {
                 ...this.state.record,

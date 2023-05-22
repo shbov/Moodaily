@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import React from 'react';
-import {Colors, Style, StyleConstant} from '../../Styles/Style';
+import {Colors, Style} from '../../Styles/Style';
 
 type YearItem = {
   label: string;
@@ -133,9 +133,11 @@ export class StatisticsModal extends React.Component<Props, State> {
   }
 
   private save() {
-    if (
-      this.props.years.map(item => Number(item.label)).includes(this.state.year)
-    ) {
+    const isYearFound = this.props.years
+      .map(item => Number(item.label))
+      .includes(Number(this.state.year));
+
+    if (isYearFound) {
       this.props.onExit(this.state.year);
     } else {
       this.props.onExit();
